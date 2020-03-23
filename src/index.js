@@ -1,0 +1,74 @@
+import './style/main.styl'
+import * as THREE from 'three'
+import { TweenLite } from 'gsap/all'
+
+/**
+ * Sizes
+ */
+const sizes = {}
+sizes.width = window.innerWidth
+sizes.height = window.innerHeight
+
+
+/**
+ * Scene
+ */
+const scene = new THREE.Scene()
+
+// Lights
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.2)
+scene.add(ambientLight)
+
+// Cubes
+const cube = new THREE.Mesh(
+    new THREE.BoxBufferGeometry(1, 1, 1),
+    new THREE.MeshBasicMaterial( { color: 0xaaffaa } )
+)
+scene.add(cube)
+
+/**
+ * Camera
+ */
+const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
+camera.position.z = 3
+scene.add(camera)
+
+/**
+ * Renderer
+ */
+const renderer = new THREE.WebGLRenderer({ alpha: true })
+renderer.setSize(sizes.width, sizes.height)
+renderer.setPixelRatio(window.devicePixelRatio)
+renderer.setClearAlpha(0)
+document.body.appendChild(renderer.domElement)
+
+/**
+ * Resize
+ */
+window.addEventListener('resize', () =>
+{
+    sizes.width = window.innerWidth
+    sizes.height = window.innerHeight
+
+    camera.aspect = sizes.width / sizes.height
+    camera.updateProjectionMatrix()
+
+    renderer.setSize(sizes.width, sizes.height)
+})
+
+
+/**
+ * Loop
+ */
+const loop = () =>
+{
+    window.requestAnimationFrame(loop)
+
+    // Camera
+    camera.lookAt(scene.position)
+
+    // Render
+    renderer.render(scene, camera)
+}
+
+loop()
