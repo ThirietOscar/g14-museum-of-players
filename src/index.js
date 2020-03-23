@@ -9,7 +9,6 @@ const sizes = {}
 sizes.width = window.innerWidth
 sizes.height = window.innerHeight
 
-
 /**
  * Scene
  */
@@ -45,8 +44,7 @@ document.body.appendChild(renderer.domElement)
 /**
  * Resize
  */
-window.addEventListener('resize', () =>
-{
+window.addEventListener('resize', () => {
     sizes.width = window.innerWidth
     sizes.height = window.innerHeight
 
@@ -60,8 +58,7 @@ window.addEventListener('resize', () =>
 /**
  * Loop
  */
-const loop = () =>
-{
+const loop = () => {
     window.requestAnimationFrame(loop)
 
     // Camera
