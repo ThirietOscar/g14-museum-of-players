@@ -26,16 +26,6 @@ body
     overflow hidden
     // cursor none
 
-canvas
-    position absolute
-    top 0
-    left 0
-    background-image radial-gradient(#ffffff 2%, transparent 2%), radial-gradient(#ffffff 2%, transparent 2%)
-    background-color #222222
-    background-position 0 0, 25px 25px
-    background-size 50px 50px
-    display none
-
 // .mouse-cursor
 //     position absolute
 //     top: 0;
@@ -51,7 +41,7 @@ canvas
     width 100vw
     height 100vh
 
-    &__background-canvas
+    &__background
         top 0
         left 0
         width 100%
@@ -90,6 +80,9 @@ canvas
         border-radius 7px
         padding 10px 0
         transform translate(-50%)
+
+    & canvas 
+        background white
 
 
         
