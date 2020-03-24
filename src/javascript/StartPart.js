@@ -31,7 +31,12 @@ export default class StartPart {
             $startPart.style.display = 'none'
             $mainPart.style.display = 'block'
 
-            TweenLite.to($mainPartbackground, 1.5, { 
+            TweenLite.to($mainPart, 0.7, {
+                opacity: '1',
+                ease: 'Power3.easeInOut'
+            })
+
+            TweenLite.to($mainPartbackground, 1.5, {
                 background: 'linear-gradient(180deg, #FFC400 -78.86%, #FFFAE7 100%)',
                 ease: 'Power3.easeInOut'
             })

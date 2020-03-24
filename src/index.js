@@ -3,6 +3,7 @@ import * as THREE from 'three'
 import { TweenLite } from 'gsap/all'
 
 import StartPart from './javascript/StartPart.js'
+import MainPart from './javascript/MainPart.js'
 
 /**
  * MOUSE CURSOR
@@ -23,4 +24,4 @@ import StartPart from './javascript/StartPart.js'
 // })
 
 const startPart = new StartPart()
-//const mainPart = new mainPart()
+const mainPart = new MainPart()
