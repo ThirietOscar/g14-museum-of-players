@@ -1,6 +1,7 @@
 //Inspired of https://codepen.io/mweslander/pen/JreWPa
 import { TweenLite } from 'gsap/all'
 import * as THREE from 'three'
+import startAudioSource from '../sounds/start.mp3'
 
 export default class StartPart {
     constructor() {
@@ -10,10 +11,14 @@ export default class StartPart {
         const $mainPartbackground = document.querySelector('.js-main-background')
         let isDisplayingStartPart = true
 
+        //Create the start audio
+        const startAudio = new Audio(startAudioSource)
+        startAudio.volume = 0.3
         //When click on button start
         $buttonStart.addEventListener('click', () => {
+            startAudio.play()
 
-            TweenLite.to($startPart, 2, { 
+            TweenLite.to($startPart, 2.3, { 
                 opacity: 0,
                 ease: 'Power3.easeInOut',
                 onComplete: changePart
@@ -21,12 +26,12 @@ export default class StartPart {
         })
 
         const changePart = () => {
-            console.log('stop')
+
             isDisplayingStartPart = false
             $startPart.style.display = 'none'
             $mainPart.style.display = 'block'
 
-            TweenLite.to($mainPartbackground, 1, { 
+            TweenLite.to($mainPartbackground, 1.5, { 
                 background: 'linear-gradient(180deg, #FFC400 -78.86%, #FFFAE7 100%)',
                 ease: 'Power3.easeInOut'
             })

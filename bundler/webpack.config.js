@@ -68,7 +68,7 @@ module.exports = {
                         options: { outputPath: 'fonts/' }
                     }    
                 ]
-            }
+            },
             {
                 test: /\.(mp3|wav)$/,
                 use: 

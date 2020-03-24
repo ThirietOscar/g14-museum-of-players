@@ -1,6 +1,7 @@
 import './style/main.styl'
 import * as THREE from 'three'
 import { TweenLite } from 'gsap/all'
+
 import StartPart from './javascript/StartPart.js'
 
 /**
@@ -22,3 +23,4 @@ import StartPart from './javascript/StartPart.js'
 // })
 
 const startPart = new StartPart()
+//const mainPart = new mainPart()
