@@ -6,6 +6,8 @@ export default class StartPart {
     constructor() {
         const $buttonStart = document.querySelector('.js-button-start')
         const $startPart = document.querySelector('.js-start-part')
+        const $mainPart = document.querySelector('.js-main-part')
+        const $mainPartbackground = document.querySelector('.js-main-background')
         let isDisplayingStartPart = true
 
         //When click on button start
@@ -14,13 +16,20 @@ export default class StartPart {
             TweenLite.to($startPart, 2, { 
                 opacity: 0,
                 ease: 'Power3.easeInOut',
-                onComplete: changePart()
+                onComplete: changePart
             })
         })
 
         const changePart = () => {
             console.log('stop')
             isDisplayingStartPart = false
+            $startPart.style.display = 'none'
+            $mainPart.style.display = 'block'
+
+            TweenLite.to($mainPartbackground, 1, { 
+                background: 'linear-gradient(180deg, #FFC400 -78.86%, #FFFAE7 100%)',
+                ease: 'Power3.easeInOut'
+            })
         }
 
         /**
