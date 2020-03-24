@@ -1,14 +1,34 @@
+//Inspired of https://codepen.io/mweslander/pen/JreWPa
+import { TweenLite } from 'gsap/all'
 import * as THREE from 'three'
 
 export default class StartPart {
     constructor() {
+        const $buttonStart = document.querySelector('.js-button-start')
+        const $startPart = document.querySelector('.js-start-part')
+        let isDisplayingStartPart = true
+
+        //When click on button start
+        $buttonStart.addEventListener('click', () => {
+
+            TweenLite.to($startPart, 2, { 
+                opacity: 0,
+                ease: 'Power3.easeInOut',
+                onComplete: changePart()
+            })
+        })
+
+        const changePart = () => {
+            console.log('stop')
+            isDisplayingStartPart = false
+        }
+
         /**
          * Sizes
          */
         const sizes = {}
         sizes.width = window.innerWidth
         sizes.height = window.innerHeight
-
 
         /**
          * Cursor
@@ -22,7 +42,6 @@ export default class StartPart {
             cursor.x = _event.clientX / sizes.width - 0.5
             cursor.y = _event.clientY / sizes.height - 0.5
         })
-
 
         /**
          * Scene
@@ -89,13 +108,17 @@ export default class StartPart {
          * Loop
          */
         const loop = () => {
-            window.requestAnimationFrame(loop)
+            console.log('liop')
+            if(isDisplayingStartPart == true)
+                window.requestAnimationFrame(loop)
 
             // Camera
             camera.position.x = cursor.x * 310
             camera.position.y = - cursor.y * 110
+
             camera.lookAt(scene.position)
 
+            // Animate balls
             let i = 0;
             for (let ix = 0; ix < amountX; ix++) {
                 for (let iy = 0; iy < amountY; iy++) {
