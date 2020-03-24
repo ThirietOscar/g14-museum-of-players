@@ -1,6 +1,7 @@
 //Inspired of https://codepen.io/mweslander/pen/JreWPa
 import { TweenLite } from 'gsap/all'
 import * as THREE from 'three'
+import Gramophone from './Gramophone.js'
 
 export default class StartPart {
     constructor() {
@@ -21,11 +22,15 @@ export default class StartPart {
         scene.add(ambientLight)
 
         // Cubes
-        const cube = new THREE.Mesh(
-            new THREE.BoxBufferGeometry(1, 1, 1),
-            new THREE.MeshBasicMaterial( { color: 0xaaffaa } )
-        )
-        scene.add(cube)
+        // const cube = new THREE.Mesh(
+        //     new THREE.BoxBufferGeometry(1, 1, 1),
+        //     new THREE.MeshBasicMaterial( { color: 0xaaffaa } )
+        // )
+        // scene.add(cube)
+
+        // gramophone
+        const gramophone = new Gramophone()
+        scene.add(gramophone.group)
 
         /**
          * Camera
@@ -33,6 +38,10 @@ export default class StartPart {
         const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
         camera.position.z = 3
         scene.add(camera)
+
+        window.addEventListener('click', () => {
+            gramophone.group.position.y--
+        })
 
         /**
          * Renderer
