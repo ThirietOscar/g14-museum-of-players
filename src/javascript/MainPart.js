@@ -36,7 +36,10 @@ export default class StartPart {
          * Camera
          */
         const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-        camera.position.z = 3
+        camera.position.z = 2
+        camera.position.y = 0
+        camera.position.x = 0
+        
         scene.add(camera)
 
         window.addEventListener('click', () => {
