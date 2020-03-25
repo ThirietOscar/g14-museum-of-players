@@ -84,7 +84,7 @@ export default class StartPart {
         const loop = () =>
         {
             window.requestAnimationFrame(loop)
-            console.log(camera.position)
+            //console.log(camera.position)
             // Camera
             camera.lookAt(scene.position)
 
