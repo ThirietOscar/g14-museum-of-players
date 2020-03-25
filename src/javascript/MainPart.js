@@ -4,6 +4,7 @@ import * as THREE from 'three'
 import Gramophone from './Gramophone.js'
 //import Jukebox from './Jukebox.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import gramophoneAudioSource from '../sounds/gramophone.mp3'
 
 export default class StartPart {
     constructor() {
@@ -15,12 +16,31 @@ export default class StartPart {
         sizes.height = window.innerHeight
 
         /**
+        * Cursor
+        */
+        const cursor = {}
+        cursor.x = 0
+        cursor.y = 0
+
+        /**
         * Scene
         */
         const scene = new THREE.Scene()
 
+        /**
+         * Camera
+         */
+        const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
+
+        // create an AudioListener and add it to the camera
+        var listener = new THREE.AudioListener();
+        camera.add( listener );
+
+        camera.position.set(0.521, 0.0329, 0.98)
+        scene.add(camera)
+
         // Lights
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.3)
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
         scene.add(ambientLight)
 
         const spotLight = new THREE.SpotLight(0xffffff, 1, 0, Math.PI * 0.2, 0.5)
@@ -41,6 +61,19 @@ export default class StartPart {
         const gramophone = new Gramophone()
         scene.add(gramophone.group)
 
+        // create the PositionalAudio object (passing in the listener)
+        var sound = new THREE.PositionalAudio( listener );
+
+        // load a sound and set it as the PositionalAudio object's buffer
+        var audioLoader = new THREE.AudioLoader();
+        audioLoader.load( gramophoneAudioSource, ( buffer ) => {
+            sound.setBuffer( buffer )
+            sound.setRefDistance( 2 )
+            sound.setDirectionalCone( 180, 230, 0.1 )
+        })
+
+        gramophone.group.add( sound )
+
         // Jukebox
         // const jukebox = new Jukebox()
         // scene.add(jukebox.group)
@@ -53,12 +86,9 @@ export default class StartPart {
         // scene.add( plane );
 
         /**
-         * Camera
+         * Ray Caster
          */
-        const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-        
-        camera.position.set(0.521, 0.0329, 0.98)
-        scene.add(camera)
+        const raycaster = new THREE.Raycaster()
 
         window.addEventListener('mousewheel', (_event) => {
             const delta = Math.max(-1, Math.min(1, (_event.wheelDelta || -_event.detail)))
@@ -96,6 +126,8 @@ export default class StartPart {
         renderer.setSize(sizes.width, sizes.height)
         renderer.setPixelRatio(window.devicePixelRatio)
         renderer.setClearAlpha(0)
+        renderer.gammaOutput = true
+        renderer.gammaFactor = 2.2
         $mainBackground.appendChild(renderer.domElement)
 
         let mouseDown = false
@@ -114,9 +146,13 @@ export default class StartPart {
         //Event to rotate the camera around the object
         renderer.domElement.addEventListener('mousemove', (_event) => {
 
+            //get the value
+            cursor.x = _event.clientX / sizes.width - 0.5
+            cursor.y = _event.clientY / sizes.height - 0.5
+
             mousePosX = _event.clientX
 
-            const rotSpeed = 0.008
+            const rotSpeed = 0.04
             const x = camera.position.x
             const z = camera.position.z
             
@@ -132,6 +168,15 @@ export default class StartPart {
             }
 
             lastMousePosX = mousePosX
+        })
+
+        let hoverGramophone = false
+
+        renderer.domElement.addEventListener('click', () => {
+            if(hoverGramophone == true) {
+               //gramophone.audio.play()
+               sound.play()
+            }
         })
 
         /**
@@ -158,12 +203,23 @@ export default class StartPart {
         /**
          * Loop
          */
-        const loop = () =>
-        {
+        const loop = () => {
             window.requestAnimationFrame(loop)
             //console.log(camera.position)
             // Camera
             camera.lookAt(scene.position)
+
+            // Cursor raycasting
+            const raycasterCursor = new THREE.Vector2(cursor.x * 2, - cursor.y * 2)
+            raycaster.setFromCamera(raycasterCursor, camera)
+
+            const intersectsGramophone = raycaster.intersectObject(gramophone.group, true)
+            if(intersectsGramophone.length) {
+                hoverGramophone = true
+            }
+            else {
+                hoverGramophone = false
+            }
 
             // Render
             renderer.render(scene, camera)

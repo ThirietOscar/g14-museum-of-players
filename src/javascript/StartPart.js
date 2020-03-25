@@ -127,7 +127,7 @@ export default class StartPart {
          * Loop
          */
         const loop = () => {
-            console.log('liop')
+            
             if(isDisplayingStartPart == true)
                 window.requestAnimationFrame(loop)
 
