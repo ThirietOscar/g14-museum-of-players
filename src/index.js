@@ -34,5 +34,16 @@ $equalizerButton.addEventListener('click', () =>
     $equalizer[0].classList.toggle('equalizer--off')
 })
 
+/**
+ * INFORMATION POP UP
+ */
+const infoButton = document.querySelector('.js-main-part__object__info-icon')
+const infoPop = document.querySelector('.js-information')
+
+infoButton.addEventListener('click', () =>
+{
+    infoPop.classList.toggle('hidden')
+})
+
 const startPart = new StartPart()
 const mainPart = new MainPart()
