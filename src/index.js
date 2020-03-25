@@ -42,7 +42,7 @@ const infoPop = document.querySelector('.js-information')
 
 infoButton.addEventListener('click', () =>
 {
-    infoPop.classList.toggle('hidden')
+    infoPop.classList.toggle('main-part__information__hidden')
 })
 
 const startPart = new StartPart()
