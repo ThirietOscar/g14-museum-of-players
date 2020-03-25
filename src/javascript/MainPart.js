@@ -2,6 +2,7 @@
 import { TweenLite } from 'gsap/all'
 import * as THREE from 'three'
 import Gramophone from './Gramophone.js'
+import Jukebox from './vintage_jukebox.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 export default class StartPart {
@@ -31,6 +32,10 @@ export default class StartPart {
         // gramophone
         const gramophone = new Gramophone()
         scene.add(gramophone.group)
+
+        // Jukebox
+        const jukebox = new Jukebox()
+        scene.add(jukebox.group)
 
 
         // var geometry = new THREE.PlaneGeometry( 5, 5, 20 );
