@@ -3,6 +3,11 @@
     src url('../fonts/HelveticaNeue/HelveticaNeue.ttf') format('truetype')
 
 @font-face
+    font-family 'HelveticaNeue'
+    font-weight lighter
+    src url('../fonts/HelveticaNeue/HelveticaNeue-Light.ttf') format('truetype')
+
+@font-face
     font-family 'Myanmar MN'
     src url('../fonts/MyanmarMN/MyanmarMN.ttf') format('truetype')
 
@@ -150,19 +155,27 @@ h2
             pointer-events none
 
         &__information
-            width 500px
-            height 200px
-            background-color white
+            width 580px
+            height 325px
+            background-color rgba(255, 255, 255, 0.4)
             backdrop-filter blur(7px)
             border-radius 9px
             transition 0.5s
+            display flex
+            flex-direction column
+            justify-content center
+            align-items center
 
             &__hidden
                 opacity 0
 
             &__text
                 margin 20px
-                padding 20px
+                padding 0px 50px 0px 50px
+                font-family 'HelveticaNeue'
+                font-weight lighter
+                line-height 25px
+
     .seek_bar
         position absolute
         left 5vh
