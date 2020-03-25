@@ -47,6 +47,34 @@ export default class StartPart {
         camera.position.set(0.521, 0.0329, 0.98)
         scene.add(camera)
 
+        window.addEventListener('mousewheel', (_event) => {
+            const delta = Math.max(-1, Math.min(1, (_event.wheelDelta || -_event.detail)))
+
+            if(delta > 0)
+                zoomIn()
+            else
+                zoomOut()
+        })
+
+        const zoomIn = () => {
+            if(getDistance(camera, scene) > 0.30 )
+            camera.position.sub(scene.position).multiplyScalar(0.95).add(scene.position)
+        }
+
+        const zoomOut = () => {
+            if(getDistance(camera, scene) < 0.70 )
+            camera.position.sub(scene.position).multiplyScalar(1.05).add(scene.position)
+        }
+
+        //Return distance between two coordinates
+        const getDistance = (mesh1, mesh2) => {
+            const distanceX = mesh1.position.x - mesh2.position.x
+            const distanceY = mesh1.position.y - mesh2.position.y
+            const distanceZ = mesh1.position.z - mesh2.position.z
+
+            return Math.sqrt(distanceX * distanceX, distanceY * distanceY, distanceZ * distanceZ)
+        }
+
         /**
          * Renderer
          */
