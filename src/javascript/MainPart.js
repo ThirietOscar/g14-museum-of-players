@@ -33,13 +33,21 @@ export default class StartPart {
         const gramophone = new Gramophone()
         scene.add(gramophone.group)
 
+
+        // var geometry = new THREE.PlaneGeometry( 5, 5, 20 );
+        // var material = new THREE.MeshBasicMaterial( {color: 0xffff00, side: THREE.DoubleSide} );
+        // var plane = new THREE.Mesh( geometry, material );
+        // plane.rotation.x = Math.PI / 2
+        // scene.add( plane );
+
         /**
          * Camera
          */
         const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-        camera.position.z = 2
-        camera.position.y = 0
+        
         camera.position.x = 0
+        camera.position.y = 0.027
+        camera.position.z = 0.683
         scene.add(camera)
 
         /**
@@ -72,7 +80,6 @@ export default class StartPart {
 
             renderer.setSize(sizes.width, sizes.height)
         })
-
 
         /**
          * Loop

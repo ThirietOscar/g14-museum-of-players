@@ -21,7 +21,8 @@ export default class Gramophone
                 console.log(_gltf.scene.children[0])
                 this.gramophone = _gltf.scene.children[0]
                 //this.gramophone.scale.set(0.01, 0.01, 0.01)
-                this.gramophone.position.set(0, -0.5, 0)
+                this.gramophone.position.set(0, -1.6, 0)
+                this.gramophone.rotation.y = - (Math.PI / 2)
                 this.gramophone.material = new THREE.MeshBasicMaterial()
                 this.group.add(this.gramophone)
             }
