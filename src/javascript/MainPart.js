@@ -2,7 +2,7 @@
 import { TweenLite } from 'gsap/all'
 import * as THREE from 'three'
 import Gramophone from './Gramophone.js'
-import Jukebox from './Jukebox.js'
+//import Jukebox from './Jukebox.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 export default class StartPart {
@@ -42,8 +42,8 @@ export default class StartPart {
         scene.add(gramophone.group)
 
         // Jukebox
-        const jukebox = new Jukebox()
-        scene.add(jukebox.group)
+        // const jukebox = new Jukebox()
+        // scene.add(jukebox.group)
 
 
         // var geometry = new THREE.PlaneGeometry( 5, 5, 20 );
@@ -97,6 +97,42 @@ export default class StartPart {
         renderer.setPixelRatio(window.devicePixelRatio)
         renderer.setClearAlpha(0)
         $mainBackground.appendChild(renderer.domElement)
+
+        let mouseDown = false
+
+        renderer.domElement.addEventListener('mousedown', (_event) => {
+            mouseDown = true
+        })
+
+        renderer.domElement.addEventListener('mouseup', (_event) => {
+            mouseDown = false
+        })
+
+        let mousePosX = 0
+        let lastMousePosX = 0
+
+        //Event to rotate the camera around the object
+        renderer.domElement.addEventListener('mousemove', (_event) => {
+
+            mousePosX = _event.clientX
+
+            const rotSpeed = 0.008
+            const x = camera.position.x
+            const z = camera.position.z
+            
+            //If mouse is down
+            if(mouseDown == true) {
+                if(mousePosX - lastMousePosX > 0) {
+                    camera.position.x = x * Math.cos(rotSpeed) + z * Math.sin(rotSpeed);
+                    camera.position.z = z * Math.cos(rotSpeed) - x * Math.sin(rotSpeed);
+                } else {
+                    camera.position.x = x * Math.cos(rotSpeed) - z * Math.sin(rotSpeed)
+                    camera.position.z = z * Math.cos(rotSpeed) + x * Math.sin(rotSpeed)  
+                }
+            }
+
+            lastMousePosX = mousePosX
+        })
 
         /**
          * Camera Controls
