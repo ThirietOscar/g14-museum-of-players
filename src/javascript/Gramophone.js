@@ -23,18 +23,7 @@ export default class Gramophone
                 //this.gramophone.scale.set(0.01, 0.01, 0.01)
                 this.gramophone.position.set(-0.15, -1.6, 0.5)
                 this.gramophone.rotation.y = - (Math.PI / 2)
-                //this.gramophone.material = new THREE.MeshToonMaterial()
-
-                this.gramophone.traverse((_object) =>
-                {
-                    if(_object instanceof THREE.Mesh)
-                    {
-                        _object.material = new THREE.MeshStandardMaterial({
-                            color: _object.material.color
-                        })
-                    }
-                })
-
+                this.gramophone.material = new THREE.MeshBasicMaterial()
                 this.group.add(this.gramophone)
             }
         )
