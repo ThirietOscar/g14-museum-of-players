@@ -16,7 +16,7 @@ export default class StartPart {
         startAudio.volume = 0.3
         //When click on button start
         $buttonStart.addEventListener('click', () => {
-            startAudio.play()
+            //startAudio.play()
 
             TweenLite.to($startPart, 2.3, { 
                 opacity: 0,
