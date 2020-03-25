@@ -23,5 +23,16 @@ import MainPart from './javascript/MainPart.js'
 //     })
 // })
 
+/**
+ * SOUND
+ */
+const $equalizerButton = document.querySelector('.js-equalizer-button')
+let $equalizer = document.querySelectorAll('.js-equalizer')
+
+$equalizerButton.addEventListener('click', () =>
+{
+    $equalizer[0].classList.toggle('equalizer--off')
+})
+
 const startPart = new StartPart()
 const mainPart = new MainPart()
