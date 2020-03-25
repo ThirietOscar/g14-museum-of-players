@@ -135,6 +135,31 @@ h2
             width 25px
             height auto
             margin-left 15px
+            cursor pointer
+
+    &__information-container
+            width 100vw
+            height 100vh
+            display flex
+            flex-direction column
+            justify-content center
+            align-items center
+
+        &__information
+            width 500px
+            height 200px
+            background-color white
+            backdrop-filter blur(7px)
+            border-radius 9px
+            transition 0.5s
+
+            &__text
+                margin 20px
+                padding 20px
+
+            .hidden 
+                opacity 0
+
     .seek-bar
         position absolute
         left 20px
