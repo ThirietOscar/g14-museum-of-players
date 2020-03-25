@@ -51,7 +51,7 @@ export default class StartPart {
          * Renderer
          */
         const $mainBackground = document.querySelector('.js-main-background')
-        const renderer = new THREE.WebGLRenderer({ alpha: true })
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true })
         renderer.setSize(sizes.width, sizes.height)
         renderer.setPixelRatio(window.devicePixelRatio)
         renderer.setClearAlpha(0)
@@ -60,9 +60,9 @@ export default class StartPart {
         /**
          * Camera Controls
          */
-        const cameraControls = new OrbitControls(camera, renderer.domElement)
-        cameraControls.zoomSpeed = 0.3
-        cameraControls.enableDamping = true
+        // const cameraControls = new OrbitControls(camera, renderer.domElement)
+        // cameraControls.zoomSpeed = 0.3
+        // cameraControls.enableDamping = true
 
         /**
          * Resize
