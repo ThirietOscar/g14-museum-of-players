@@ -19,8 +19,16 @@ export default class StartPart {
         const scene = new THREE.Scene()
 
         // Lights
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.7)
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.3)
         scene.add(ambientLight)
+
+        const spotLight = new THREE.SpotLight(0xffffff, 1, 0, Math.PI * 0.2, 0.5)
+        spotLight.position.z = 3
+        spotLight.position.y = 2
+        scene.add(spotLight)
+
+        spotLight.target.position.z = - 2
+        scene.add(spotLight.target)
 
         // const cube = new THREE.Mesh(
         //     new THREE.BoxBufferGeometry(1, 1, 1),
