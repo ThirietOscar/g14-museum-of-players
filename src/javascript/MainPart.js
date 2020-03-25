@@ -2,7 +2,7 @@
 import { TweenLite } from 'gsap/all'
 import * as THREE from 'three'
 import Gramophone from './Gramophone.js'
-import Jukebox from './vintage_jukebox.js'
+import Jukebox from './Jukebox.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 export default class StartPart {
