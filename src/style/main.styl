@@ -135,6 +135,34 @@ h2
             width 25px
             height auto
             margin-left 15px
+            cursor pointer
+
+    &__information-container
+            position absolute
+            top 0
+            left 0
+            width 100vw
+            height 100vh
+            display flex
+            flex-direction column
+            justify-content center
+            align-items center
+            pointer-events none
+
+        &__information
+            width 500px
+            height 200px
+            background-color white
+            backdrop-filter blur(7px)
+            border-radius 9px
+            transition 0.5s
+
+            &__hidden
+                opacity 0
+
+            &__text
+                margin 20px
+                padding 20px
     .seek_bar
         position absolute
         left 5vh
@@ -146,7 +174,7 @@ h2
         justify-content space-between
 
         .current_object
-            border thin solid white
+            border thin solid black
 
         .background_object
             height 1.4vh
@@ -160,9 +188,9 @@ h2
                 left 0.2vh
                 height 1vh
                 width 1vh
-                background white
-                border-radius 50%
-            
+                background black
+                border-radius 50% 
+                      
     .equalizer-button
         position absolute
         top 10%
