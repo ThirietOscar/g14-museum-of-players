@@ -15,8 +15,7 @@
     font-family 'Myanmar MN'
     font-weight bold
     src url('../fonts/MyanmarMN/MyanmarMN-Bold.ttf') format('truetype')
-
-    
+   
 *
     margin 0
     padding 0
@@ -90,13 +89,13 @@ h2
         width 150px
         height 50px
         padding 10px 0
-        border 3px solid #ffffff
+        border 3px solid #8A7DB2
         border-radius 8px
         background-color transparent
         font-family 'Myanmar MN'
         font-weight bold
         font-size 18px
-        color white
+        color #8A7DB2
         text-transform uppercase
         cursor pointer
         transform translate(-50%)
@@ -203,7 +202,7 @@ h2
 
     .seek_bar
         position absolute
-        left 5vh
+        left 7%
         top 30vh
         bottom 30vh
         width 3vh
@@ -228,8 +227,12 @@ h2
                 width 1.5vh
                 background white
                 border-radius 50% 
-            &:hover 
-                transform scale(1.5)    
+           
+            &:hover   
+                transform scale(1.5)
+                animation-name button-transition
+                animation-duration .25s
+                animation-timing-function ease-in  
 
     .equalizer-button
         position absolute
@@ -310,3 +313,9 @@ h2
         height 15px
     100%
         height 3px
+
+@keyframes button-transition
+    0%
+        transform scale(1)
+    100%
+        transform scale(1.5)
