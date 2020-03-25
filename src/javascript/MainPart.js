@@ -42,8 +42,8 @@ export default class StartPart {
         scene.add(gramophone.group)
 
         // Jukebox
-        const jukebox = new Jukebox()
-        scene.add(jukebox.group)
+        // const jukebox = new Jukebox()
+        // scene.add(jukebox.group)
 
 
         // var geometry = new THREE.PlaneGeometry( 5, 5, 20 );
