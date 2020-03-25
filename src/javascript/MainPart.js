@@ -44,9 +44,7 @@ export default class StartPart {
          */
         const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
         
-        camera.position.x = 0
-        camera.position.y = 0.027
-        camera.position.z = 0.683
+        camera.position.set(0.521, 0.0329, 0.98)
         scene.add(camera)
 
         /**
@@ -86,7 +84,7 @@ export default class StartPart {
         const loop = () =>
         {
             window.requestAnimationFrame(loop)
-            
+            console.log(camera.position)
             // Camera
             camera.lookAt(scene.position)
 
