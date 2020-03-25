@@ -19,13 +19,12 @@ export default class StartPart {
         const scene = new THREE.Scene()
 
         // Lights
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.2)
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.7)
         scene.add(ambientLight)
 
-        // Cubes
         // const cube = new THREE.Mesh(
         //     new THREE.BoxBufferGeometry(1, 1, 1),
-        //     new THREE.MeshBasicMaterial( { color: 0xaaffaa } )
+        //     new THREE.MeshBasicMaterial( { color: 0xaaffaa, opacity: 0.5 } )
         // )
         // scene.add(cube)
 
