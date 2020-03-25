@@ -2,7 +2,6 @@
 import { TweenLite } from 'gsap/all'
 import * as THREE from 'three'
 import Gramophone from './Gramophone.js'
-var OrbitControls = require('three-orbit-controls')(THREE)
 
 export default class StartPart {
     constructor() {
@@ -53,9 +52,6 @@ export default class StartPart {
         renderer.setClearAlpha(0)
         $mainBackground.appendChild(renderer.domElement)
 
-        var controls = new OrbitControls( camera, renderer.domElement );
-        controls.update();
-
         /**
          * Resize
          */
@@ -77,8 +73,6 @@ export default class StartPart {
         const loop = () =>
         {
             window.requestAnimationFrame(loop)
-
-            controls.update();
             
             // Camera
             camera.lookAt(scene.position)
