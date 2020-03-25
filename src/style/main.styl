@@ -15,6 +15,7 @@
     font-family 'Myanmar MN'
     font-weight bold
     src url('../fonts/MyanmarMN/MyanmarMN-Bold.ttf') format('truetype')
+
     
 *
     margin 0
@@ -83,22 +84,45 @@ h2
 
     &__button-start
         position absolute
-        width 188px
-        height 64px
+        width 150px
+        height 50px
         bottom 95px
         left 50%  
         font-family 'Myanmar MN'
         font-weight bold
-        font-size 30px
+        font-size 24px
         text-transform uppercase
-        background none
+        background black
+        color white
         border 3px solid #000000
-        border-radius 7px
+        border-radius 50px
         padding 10px 0
+        cursor pointer
         transform translate(-50%)
-
+        box-shadow 0 0 0 0 rgba(#000000, .5)
+        -webkit-animation pulse 2.5s infinite
+    
+    &__button-start:hover
+          -webkit-animation: none;
+          background #161616
     & canvas 
         background white
+    
+    @keyframes pulse {
+        0% {
+            transform(scale(.6))
+            opacity 0.8
+    }
+        70% {
+            transform(scale(.8))
+            box-shadow: 0 0 0 50px rgba(#000000, 0)
+    }
+        100% {
+            transform(scale(.6))
+            box-shadow: 0 0 0 0 rgba(#000000, 0)
+
+        }
+    }
 
 .main-part
     display none
