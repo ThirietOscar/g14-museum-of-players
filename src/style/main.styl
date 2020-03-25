@@ -137,80 +137,81 @@ h2
             margin-left 15px
 
     .equalizer-button
-    position relative
-    left 95%
-    width 30px
-    height 30px
-
-    .equalizer
         position absolute
         top 7px
-        left 5px
-        width 20px
-        height 15px
+        right 20px
+        width 30px
+        height 30px
 
-        &__bar
+        .equalizer
             position absolute
-            bottom 0
-            width 0
+            top 7px
+            left 5px
+            width 20px
             height 15px
-            border-left2px solid black
-            transition 0.2s ease-out 0.2s
 
-        &__1
-            left 0
-
-        &__2
-            left 4px
-
-        &__3
-            left 8px
-
-        &__4
-            left 12px
-
-        &__5
-            left 16px
-
-        &--on
-
-            equalizer__bar
-                animation-name equalizer-play
-                animation-iteration-count infinite
-                animation-timing-function ease
-                animation-fill-mode both
-
-            equalizer__1
-                animation-duration 0.6s
-
-            equalizer__2
-                animation-duration 0.5s
-
-            equalizer__3
-                animation-duration 0.58s
-
-            equalizer__4
-                animation-duration 0.52s
-
-            equalizer__5
-                animation-duration 0.56s
-
-        &--off 
-        
-            equalizer__bar
-                animation-name equalizer-stop
-                animation-iteration-count 1
-                animation-fill-mode forwards
-
-        @keyframes equalizer-play
-            0%, 
-            100%
-                height 8px
-            50%
+            &__bar
+                position absolute
+                bottom 0
+                width 0
                 height 15px
+                border-left 2px solid black
+                transition 0.2s ease-out 0.2s
 
-        @keyframes equalizer-stop
-            0%
-                height 15px
-            100%
-                height 3px
+            &__1
+                left 0
+
+            &__2
+                left 4px
+
+            &__3
+                left 8px
+
+            &__4
+                left 12px
+
+            &__5
+                left 16px
+
+            &--on
+
+                .equalizer__bar
+                    animation-name equalizer-play
+                    animation-iteration-count infinite
+                    animation-timing-function ease
+                    animation-fill-mode both
+
+                .equalizer__1
+                    animation-duration 0.6s
+
+                .equalizer__2
+                    animation-duration 0.5s
+
+                .equalizer__3
+                    animation-duration 0.58s
+
+                .equalizer__4
+                    animation-duration 0.52s
+
+                .equalizer__5
+                    animation-duration 0.56s
+
+            &--off 
+            
+                .equalizer__bar
+                    animation-name equalizer-stop
+                    animation-iteration-count 1
+                    animation-fill-mode forwards
+
+@keyframes equalizer-play
+    0%
+    100%
+        height 8px    
+    50%
+       height 15px      
+       
+@keyframes equalizer-stop
+    0%
+        height 15px
+    100%
+        height 3px
