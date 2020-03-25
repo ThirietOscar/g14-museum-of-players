@@ -2,6 +2,7 @@
 import { TweenLite } from 'gsap/all'
 import * as THREE from 'three'
 import Gramophone from './Gramophone.js'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 export default class StartPart {
     constructor() {
@@ -39,7 +40,6 @@ export default class StartPart {
         camera.position.z = 2
         camera.position.y = 0
         camera.position.x = 0
-        
         scene.add(camera)
 
         /**
@@ -51,6 +51,13 @@ export default class StartPart {
         renderer.setPixelRatio(window.devicePixelRatio)
         renderer.setClearAlpha(0)
         $mainBackground.appendChild(renderer.domElement)
+
+        /**
+         * Camera Controls
+         */
+        const cameraControls = new OrbitControls(camera, renderer.domElement)
+        cameraControls.zoomSpeed = 0.3
+        cameraControls.enableDamping = true
 
         /**
          * Resize
