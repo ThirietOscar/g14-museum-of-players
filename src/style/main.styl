@@ -218,6 +218,7 @@ h2
             width 1.9vh
             border-radius 50%
             position relative
+            transition 0.5s
                     
             .seek_bar_object
                 position absolute
@@ -226,13 +227,14 @@ h2
                 height 1.5vh
                 width 1.5vh
                 background white
-                border-radius 50% 
+                border-radius 50%  
            
             &:hover   
                 transform scale(1.5)
                 animation-name button-transition
-                animation-duration .25s
-                animation-timing-function ease-in  
+                animation-duration .1s
+                animation-timing-function ease-out 
+                animation-fill-mode back 
 
     .equalizer-button
         position absolute
