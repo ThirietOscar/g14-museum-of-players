@@ -77,7 +77,7 @@ export default class StartPart {
         let particles = [], particle, count = 0;
 
         const ballGeometry = new THREE.SphereGeometry(ballSize, 32, 32)
-        const ballMaterial = new THREE.MeshBasicMaterial({color: 0x000000})
+        const ballMaterial = new THREE.MeshBasicMaterial({color: 0xffffff})
 
         let i = 0;
         for ( let ix = 0; ix < amountX; ix ++ ) {
