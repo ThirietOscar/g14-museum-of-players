@@ -9,7 +9,11 @@ export default class Gramophone
     {
         this.group = new THREE.Group()
 
+        this.name='Gramophone'
+
         this.background = 'linear-gradient(180deg, #FFC400 -78.86%, #FFFAE7 100%)'
+
+        this.textColor = '#B6AA81'
 
         this.cameraPosition = new THREE.Vector3(0.521, 0.0329, 0.98)
 
