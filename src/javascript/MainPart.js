@@ -28,13 +28,13 @@ export default class StartPart {
         const scene = new THREE.Scene()
 
         /**
-         * Camera
-         */
+        * Camera
+        */
         const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 
         // create an AudioListener and add it to the camera
-        var listener = new THREE.AudioListener();
-        camera.add( listener );
+        const listener = new THREE.AudioListener()
+        camera.add(listener)
 
         camera.position.set(0.521, 0.0329, 0.98)
         scene.add(camera)
@@ -57,24 +57,33 @@ export default class StartPart {
         // )
         // scene.add(cube)
 
-        // gramophone
+        /**
+         * GRAMOPHONE
+         */
         const gramophone = new Gramophone()
         scene.add(gramophone.group)
 
         // create the PositionalAudio object (passing in the listener)
-        var sound = new THREE.PositionalAudio( listener );
+        const gramophoneSound = new THREE.PositionalAudio(listener)
 
         // load a sound and set it as the PositionalAudio object's buffer
-        var audioLoader = new THREE.AudioLoader();
-        audioLoader.load( gramophoneAudioSource, ( buffer ) => {
-            sound.setBuffer( buffer )
-            sound.setRefDistance( 2 )
-            sound.setDirectionalCone( 180, 230, 0.1 )
+        const gramophoneAudioLoader = new THREE.AudioLoader();
+        gramophoneAudioLoader.load(gramophoneAudioSource, (buffer) => {
+            gramophoneSound.setBuffer(buffer)
+            gramophoneSound.setRefDistance( 1 )
+            gramophoneSound.setDirectionalCone(180, 230, 0.1)
         })
 
-        gramophone.group.add( sound )
+        gramophone.group.add(gramophoneSound)
 
-        // Jukebox
+        // const gramophoneSoundHelper = new THREE.PositionalAudioHelper(gramophoneSound)
+        // gramophoneSound.add(gramophoneSoundHelper)
+
+        /**
+         * Jukeboox
+         */
+
+        // // Jukebox
         // const jukebox = new Jukebox()
         // scene.add(jukebox.group)
 
@@ -84,6 +93,25 @@ export default class StartPart {
         // var plane = new THREE.Mesh( geometry, material );
         // plane.rotation.x = Math.PI / 2
         // scene.add( plane );
+
+        /**
+         * SeekBar 
+         */
+
+        const $seekBarPoints = document.querySelectorAll('.seek_bar_object')
+
+        for (let i = 0; i < $seekBarPoints.length; i++) {
+            const _element = $seekBarPoints[i];
+            
+            _element.addEventListener('click', () => {
+                console.log('click')
+
+                TweenLite.to(gramophone.gramophone.position, 2, {
+                    y: gramophone.gramophone.y -0.2,
+                    ease: 'Power3.easeInOut'
+                })
+            })
+        }
 
         /**
          * Ray Caster
@@ -175,7 +203,7 @@ export default class StartPart {
         renderer.domElement.addEventListener('click', () => {
             if(hoverGramophone == true) {
                //gramophone.audio.play()
-               sound.play()
+               gramophoneSound.play()
             }
         })
 

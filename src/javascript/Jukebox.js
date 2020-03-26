@@ -21,8 +21,8 @@ export default class Jukebox
                 console.log(_gltf.scene.children[0])
                 this.jukebox = _gltf.scene.children[0]
                 //this.jukebox.scale.set(0.01, 0.01, 0.01)
-                this.jukebox.position.set(-0.15, -1.6, 0.5)
-                this.jukebox.rotation.y = - (Math.PI / 2)
+                //this.jukebox.position.set(-0.15, -1.6, 0.5)
+                //this.jukebox.rotation.y = - (Math.PI / 2)
                 this.jukebox.material = new THREE.MeshBasicMaterial()
                 this.group.add(this.jukebox)
             }
