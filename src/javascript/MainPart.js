@@ -84,6 +84,8 @@ export default class MainPart {
 
         gramophone.group.add(gramophoneSound)
 
+        let currentObject = gramophone
+
         // const gramophoneSoundHelper = new THREE.PositionalAudioHelper(gramophoneSound)
         // gramophoneSound.add(gramophoneSoundHelper)
 

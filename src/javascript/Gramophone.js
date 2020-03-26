@@ -9,15 +9,9 @@ export default class Gramophone
     {
         this.group = new THREE.Group()
 
-        this.cameraPosition = {}
-        this.cameraPosition.x = 0.521 
-        this.cameraPosition.y = 0.0329
-        this.cameraPosition.z = 0.98
+        this.cameraPosition = new THREE.Vector3(0.521, 0.0329, 0.98)
 
-        this.scenePosition = {}
-        this.scenePosition.x = 0
-        this.scenePosition.y = 0
-        this.scenePosition.z = 0
+        this.scenePosition = new THREE.Vector3(0, 0, 0)
 
         const dracoLoader = new DRACOLoader()
         dracoLoader.setDecoderPath('/draco/')
