@@ -130,6 +130,7 @@ export default class MainPart {
 
         const $seekBarPoints = document.querySelectorAll('.seek_bar_object')
         const $backgroundobjects = document.querySelectorAll('.background_object')
+        const $mainPartbackground = document.querySelector('.js-main-background')
 
         for (let i = 0; i < $seekBarPoints.length; i++) {
             const _element = $seekBarPoints[i];
@@ -170,6 +171,11 @@ export default class MainPart {
                     y: currentObject.cameraPosition.y,
                     z: currentObject.cameraPosition.z,
                     ease: 'Power3.easeInOut'
+                })
+
+                TweenLite.to($mainPartbackground, 1, {
+                    background: currentObject.background,
+                    ease: 'Power3.easeIn'
                 })
             })
         }

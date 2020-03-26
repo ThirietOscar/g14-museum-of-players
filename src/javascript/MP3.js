@@ -9,6 +9,8 @@ export default class MP3
     {
         this.group = new THREE.Group()
 
+        this.background = 'linear-gradient(180deg, #9C4A40 -63.62%, #FFECEA 100%)'
+
         this.cameraPosition = new THREE.Vector3(25.521, 0.0329, 0.98)
 
         this.scenePosition = new THREE.Vector3(25, 0, 0)

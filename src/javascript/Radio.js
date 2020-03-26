@@ -9,6 +9,8 @@ export default class Radio
     {
         this.group = new THREE.Group()
 
+        this.background = 'linear-gradient(180deg, #085254 -102.93%, #E2FEFF 100%)'
+
         this.cameraPosition = new THREE.Vector3(10.521, 0.0329, 0.98)
 
         this.scenePosition = new THREE.Vector3(10, 0, 0)
