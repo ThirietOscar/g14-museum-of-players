@@ -228,7 +228,7 @@ export default class MainPart {
                 $mainPartbackground.style.background = currentObject.background
 
                 
-               const objectNameAnimation = gsap.to($objectName, 1, {
+               const objectNameAnimation = gsap.to($objectName, 0.5, {
                     opacity: 0,
                     ease: 'Power3.easeIn',
                     onComplete: () => {
@@ -243,8 +243,6 @@ export default class MainPart {
                 $schema.src = currentObject.schema
             })
         }
-
-        
 
         /**
          * Ray Caster
