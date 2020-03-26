@@ -19,6 +19,7 @@
 *
     margin 0
     padding 0
+    cursor none
 
 html
 body
@@ -28,7 +29,7 @@ body
     width 100%
     height 100%
     overflow hidden
-    // cursor none
+    
 
 h1, h2, h3, h4, a
     font-family Myanmar MN
@@ -38,19 +39,20 @@ h2
     font-size: 30px
 
 
-// .mouse-cursor
-//     position absolute
-//     user-select none
-//     top: 0;
-//     left: 0;
-//     width 30px
-//     height 30px
-//     border-radius 50%
-//     border 2px solid white
-//     z-index 10
+.mouse-cursor
+    position absolute
+    user-select none
+    top: 0;
+    left: 0;
+    width 30px
+    height 30px
+    border-radius 50%
+    border 4px solid white
+    z-index 10
+    pointer-events none
 
-//     &--black
-//         border 2px solid black
+    &--black
+        border 4px solid black
 
 .start-part
     position relative

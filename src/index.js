@@ -8,13 +8,12 @@ import MainPart from './javascript/MainPart.js'
 /**
  * MOUSE CURSOR
  */
-// const $cursor = document.querySelector('.mouse-cursor')
-// $cursor.classList.add('mouse-cursor--black')
+const $cursor = document.querySelector('.mouse-cursor')
 
-// window.addEventListener('mousemove', (_event) => {
+window.addEventListener('mousemove', (_event) => {
     
-//     $cursor.style.transform = `translate(${_event.pageX-15}px, ${_event.pageY-15}px)`
-// })
+    $cursor.style.transform = `translate(${_event.pageX-15}px, ${_event.pageY-15}px)`
+})
 
 // window.addEventListener('mousedown', (_event) => {
 //     gsap.to($cursor, 0.3, { 
