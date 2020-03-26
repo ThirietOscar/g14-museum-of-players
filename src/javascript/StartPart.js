@@ -1,5 +1,5 @@
 //Inspired of https://codepen.io/mweslander/pen/JreWPa
-import { TweenLite } from 'gsap/all'
+import { gsap } from 'gsap'
 import * as THREE from 'three'
 import startAudioSource from '../sounds/start.mp3'
 
@@ -18,7 +18,7 @@ export default class StartPart {
         $buttonStart.addEventListener('click', () => {
             //startAudio.play()
 
-            TweenLite.to($startPart, 2.3, { 
+            gsap.to($startPart, 2.3, { 
                 opacity: 0,
                 ease: 'Power3.easeInOut',
                 onComplete: changePart
@@ -31,12 +31,12 @@ export default class StartPart {
             $startPart.style.display = 'none'
             $mainPart.style.display = 'block'
 
-            TweenLite.to($mainPart, 0.7, {
+            gsap.to($mainPart, 0.7, {
                 opacity: '1',
                 ease: 'Power3.easeInOut'
             })
 
-            TweenLite.to($mainPartbackground, 1.5, {
+            gsap.to($mainPartbackground, 1.5, {
                 background: 'linear-gradient(180deg, #FFC400 -78.86%, #FFFAE7 100%)',
                 ease: 'Power3.easeInOut'
             })
