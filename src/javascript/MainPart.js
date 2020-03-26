@@ -12,6 +12,7 @@ import MP3 from './MP3.js'
 //Import sounds
 import gramophoneAudioSource from '../sounds/gramophone.mp3'
 import jukeboxAudioSource from '../sounds/jukebox.mp3'
+import radioAudioSource from '../sounds/radio.mp3'
 
 export default class MainPart {
     constructor() {
@@ -117,6 +118,17 @@ export default class MainPart {
          */
         const radio = new Radio()
         scene.add(radio.group)
+
+        const radioSound = new THREE.PositionalAudio(listener)
+
+        const radioAudioLoader = new THREE.AudioLoader();
+        radioAudioLoader.load(radioAudioSource, (buffer) => {
+            radioSound.setBuffer(buffer)
+            radioSound.setRefDistance(0.5)
+            radioSound.setDirectionalCone(180, 230, 0.1)
+        })
+
+        radio.group.add(radioSound)
 
         /**
          * Vinyl
@@ -285,22 +297,22 @@ export default class MainPart {
         })
 
         let hoverGramophone = false
+        let hoverJukebox = false
+        let hoverRadio = false
 
         renderer.domElement.addEventListener('click', () => {
             if(hoverGramophone == true) {
                gramophone.audio.play()
                //gramophoneSound.play()
             }
-        })
-
-        let hoverJukebox = false
-
-        renderer.domElement.addEventListener('click', () => {
             if(hoverJukebox == true) {
-               jukebox.audio.play()
-               //gramophoneSound.play()
+                jukebox.audio.play()
+             }
+            if(hoverRadio == true) {
+                radio.audio.play()
             }
         })
+
 
         /**
          * Camera Controls
@@ -352,6 +364,14 @@ export default class MainPart {
             }
             else {
                 hoverJukebox = false
+            }
+
+            const intersectsRadio = raycaster.intersectObject(radio.group, true)
+            if(intersectsRadio.length) {
+                hoverRadio = true
+            }
+            else {
+                hoverRadio = false
             }
 
             // Render
