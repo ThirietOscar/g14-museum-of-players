@@ -70,7 +70,7 @@ export default class StartPart {
         const gramophoneAudioLoader = new THREE.AudioLoader();
         gramophoneAudioLoader.load(gramophoneAudioSource, (buffer) => {
             gramophoneSound.setBuffer(buffer)
-            gramophoneSound.setRefDistance( 1 )
+            gramophoneSound.setRefDistance(1)
             gramophoneSound.setDirectionalCone(180, 230, 0.1)
         })
 
