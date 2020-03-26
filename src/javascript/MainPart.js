@@ -2,11 +2,12 @@
 import { TweenLite } from 'gsap/all'
 import * as THREE from 'three'
 import Gramophone from './Gramophone.js'
-//import Jukebox from './Jukebox.js'
+import MP3 from './MP3.js'
+import Jukebox from './Jukebox.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import gramophoneAudioSource from '../sounds/gramophone.mp3'
 
-export default class StartPart {
+export default class MainPart {
     constructor() {
         /**
         * Sizes
@@ -106,8 +107,8 @@ export default class StartPart {
             _element.addEventListener('click', () => {
                 console.log('click')
 
-                TweenLite.to(gramophone.gramophone.position, 2, {
-                    y: gramophone.gramophone.y -0.2,
+                TweenLite.to(camera.position, 2, {
+                    x: camera.x + 0.5,
                     ease: 'Power3.easeInOut'
                 })
             })
