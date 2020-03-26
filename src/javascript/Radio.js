@@ -11,6 +11,7 @@ export default class Radio
 
         this.name='Radio'
         this.text='The invention of radio is a collective work that began in the 1840s, starting with the discovery of electromagnetic waves, the invention of the telegraph, and culminating in the first equipment that could be used to communicate wirelessly using radio waves. In 1940, about one on two French households was equipped with a radio. In 1962 the proportion exceeded 85%, whereas today there are on average 6 radios per house.'
+        this.schema= '/images/schemaRadio.png'
 
         this.background = 'linear-gradient(180deg, #085254 -102.93%, #E2FEFF 100%)'
         this.textColor = '#719090'

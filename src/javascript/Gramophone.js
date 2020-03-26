@@ -12,6 +12,7 @@ export default class Gramophone
         this.name='Gramophone'
         this.text=`The gramophone was invented by Emile Berliner in the 1880s. It makes it possible to play extraordinary music pre-recorded on a phonographic disc. A real piece of history, whose record player melodies can be appreciated from the back of a comfortable club armchair.
         The first sound recording was “Au clair de la lune”.`
+        this.schema= '/images/schemaGramophone.png'
 
         this.background = 'linear-gradient(180deg, #FFC400 -78.86%, #FFFAE7 100%)'
 

@@ -186,6 +186,7 @@ export default class MainPart {
         const $mainPartbackground = document.querySelector('.js-main-background')
         const $informationText = document.querySelector('.main-part__information__text')
         const $objectName = document.querySelector('.main-part__object__name')
+        const $schema = document.querySelector('.schema')
         
         for (let i = 0; i < $seekBarPoints.length; i++) {
             const _element = $seekBarPoints[i];
@@ -237,6 +238,7 @@ export default class MainPart {
                 $objectName.innerText = currentObject.name
                 $objectName.style.color = currentObject.textColor
                 $informationText.innerHTML = currentObject.text
+                $schema.src = currentObject.schema
             })
         }
 
