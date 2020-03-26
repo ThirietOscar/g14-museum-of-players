@@ -188,6 +188,8 @@ export default class MainPart {
                 // })
 
                 $mainPartbackground.style.background = currentObject.background
+                $informationText.innerText = currentObject.name
+                $informationText.style.color = currentObject.textColor
             })
         }
 
