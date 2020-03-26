@@ -1,10 +1,13 @@
-//Inspired of https://codepen.io/mweslander/pen/JreWPa
 import { TweenLite } from 'gsap/all'
 import * as THREE from 'three'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+
+//Import object models
 import Gramophone from './Gramophone.js'
 import MP3 from './MP3.js'
 import Jukebox from './Jukebox.js'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+
+//Import sounds
 import gramophoneAudioSource from '../sounds/gramophone.mp3'
 
 export default class MainPart {
