@@ -8,7 +8,7 @@ export default class Jukebox
     {
         this.group = new THREE.Group()
 
-        this.background = 'linear-gradient(180deg, #56B455 0%, #E2FFCB 100%)'
+        this.background = 'linear-gradient(180deg, #A0CC9F 0%, #F3FFEA 100%)'
 
         this.cameraPosition = new THREE.Vector3(5.521, 0.0329, 0.98)
 
