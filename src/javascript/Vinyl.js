@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
-// import MP3AudioSource from '../sounds/MP3.mp3'
+import vinylAudioSource from '../sounds/platine.mp3'
 
 export default class Vinyl
 {
@@ -38,7 +38,7 @@ export default class Vinyl
             }
         )
 
-        // this.audio = new Audio(MP3AudioSource)
-        // this.audio.volume = 0.4
+        this.audio = new Audio(vinylAudioSource)
+        this.audio.volume = 0.4
     }
 }

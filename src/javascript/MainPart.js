@@ -11,6 +11,10 @@ import MP3 from './MP3.js'
 
 //Import sounds
 import gramophoneAudioSource from '../sounds/gramophone.mp3'
+import jukeboxAudioSource from '../sounds/jukebox.mp3'
+import radioAudioSource from '../sounds/radio.mp3'
+import vinylAudioSource from '../sounds/platine.mp3'
+//import MP3AudioSource from '../sounds/baladeur.mp3'
 
 export default class MainPart {
     constructor() {
@@ -99,17 +103,50 @@ export default class MainPart {
         const jukebox = new Jukebox()
         scene.add(jukebox.group)
 
+        const jukeboxSound = new THREE.PositionalAudio(listener)
+
+        const jukeboxAudioLoader = new THREE.AudioLoader();
+        jukeboxAudioLoader.load(jukeboxAudioSource, (buffer) => {
+            jukeboxSound.setBuffer(buffer)
+            jukeboxSound.setRefDistance(0.5)
+            jukeboxSound.setDirectionalCone(180, 230, 0.1)
+        })
+
+        jukebox.group.add(jukeboxSound)
+
         /**
          * Radio
          */
         const radio = new Radio()
         scene.add(radio.group)
 
+        const radioSound = new THREE.PositionalAudio(listener)
+
+        const radioAudioLoader = new THREE.AudioLoader();
+        radioAudioLoader.load(radioAudioSource, (buffer) => {
+            radioSound.setBuffer(buffer)
+            radioSound.setRefDistance(0.5)
+            radioSound.setDirectionalCone(180, 230, 0.1)
+        })
+
+        radio.group.add(radioSound)
+
         /**
          * Vinyl
          */
         const vinyl = new Vinyl()
         scene.add(vinyl.group)
+
+        const vinylSound = new THREE.PositionalAudio(listener)
+
+        const vinylAudioLoader = new THREE.AudioLoader();
+        vinylAudioLoader.load(vinylAudioSource, (buffer) => {
+            vinylSound.setBuffer(buffer)
+            vinylSound.setRefDistance(0.5)
+            vinylSound.setDirectionalCone(180, 230, 0.1)
+        })
+
+        vinyl.group.add(vinylSound)
 
 
         // var geometry = new THREE.PlaneGeometry( 5, 5, 20 );
@@ -121,8 +158,19 @@ export default class MainPart {
         /**
          * MP3
          */
-        const mp3 = new MP3()
-        scene.add(mp3.group)
+        // const mp3 = new MP3()
+        // scene.add(mp3.group)
+
+        // const mp3Sound = new THREE.PositionalAudio(listener)
+
+        // const mp3AudioLoader = new THREE.AudioLoader();
+        // mp3AudioLoader.load(mp3AudioSource, (buffer) => {
+        //     mp3Sound.setBuffer(buffer)
+        //     mp3Sound.setRefDistance(0.5)
+        //     mp3Sound.setDirectionalCone(180, 230, 0.1)
+        // })
+
+        // mp3.group.add(mp3Sound)
 
         /**
          * SeekBar 
@@ -273,12 +321,28 @@ export default class MainPart {
         })
 
         let hoverGramophone = false
+        let hoverJukebox = false
+        let hoverRadio = false
+        let hoverVinyl = false
+        //let hoverMP3 = false
 
         renderer.domElement.addEventListener('click', () => {
             if(hoverGramophone == true) {
-               //gramophone.audio.play()
+               gramophone.audio.play()
                //gramophoneSound.play()
             }
+            if(hoverJukebox == true) {
+                jukebox.audio.play()
+             }
+            if(hoverRadio == true) {
+                radio.audio.play()
+            }
+            if(hoverVinyl == true) {
+                vinyl.audio.play()
+            }
+            // if(hoverMP3 == true) {
+            //     mp3.audio.play()
+            // }
         })
 
         /**
@@ -324,6 +388,38 @@ export default class MainPart {
             else {
                 hoverGramophone = false
             }
+
+            const intersectsJukebox = raycaster.intersectObject(jukebox.group, true)
+            if(intersectsJukebox.length) {
+                hoverJukebox = true
+            }
+            else {
+                hoverJukebox = false
+            }
+
+            const intersectsRadio = raycaster.intersectObject(radio.group, true)
+            if(intersectsRadio.length) {
+                hoverRadio = true
+            }
+            else {
+                hoverRadio = false
+            }
+
+            const intersectsVinyl = raycaster.intersectObject(vinyl.group, true)
+            if(intersectsVinyl.length) {
+                hoverVinyl = true
+            }
+            else {
+                hoverVinyl = false
+            }
+
+            // const intersectsMP3 = raycaster.intersectObject(mp3.group, true)
+            // if(intersectsMP3.length) {
+            //     hoverMP3 = true
+            // }
+            // else {
+            //     hoverMP3 = false
+            // }
 
             // Render
             renderer.render(scene, camera)
