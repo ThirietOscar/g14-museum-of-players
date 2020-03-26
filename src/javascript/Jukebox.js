@@ -8,6 +8,10 @@ export default class Jukebox
     {
         this.group = new THREE.Group()
 
+        this.cameraPosition = new THREE.Vector3(5.521, 0.0329, 0.98)
+
+        this.scenePosition = new THREE.Vector3(5, 0, 0)
+
         const dracoLoader = new DRACOLoader()
         dracoLoader.setDecoderPath('/draco/')
 
@@ -18,12 +22,10 @@ export default class Jukebox
             '/models/jukebox/model.gltf',
             (_gltf) =>
             {   
-                console.log(_gltf.scene.children[0])
                 this.jukebox = _gltf.scene.children[0]
-                //this.jukebox.scale.set(0.01, 0.01, 0.01)
-                //this.jukebox.position.set(-0.15, -1.6, 0.5)
-                //this.jukebox.rotation.y = - (Math.PI / 2)
-                this.jukebox.material = new THREE.MeshBasicMaterial()
+                this.jukebox.scale.set(2.4, 2.4, 2.4)
+                this.jukebox.position.set(5.13, - 0.4, - 0.8)
+                this.jukebox.material = new THREE.MeshToonMaterial()
                 this.group.add(this.jukebox)
             }
         )

@@ -9,6 +9,10 @@ export default class Vinyl
     {
         this.group = new THREE.Group()
 
+        this.cameraPosition = new THREE.Vector3(15.521, 0.0329, 0.98)
+
+        this.scenePosition = new THREE.Vector3(15, 0, 0)
+
         const dracoLoader = new DRACOLoader()
         dracoLoader.setDecoderPath('/draco/')
 
@@ -19,11 +23,10 @@ export default class Vinyl
             '/models/vinyl/model.gltf',
             (_gltf) =>
             {   
-                console.log(_gltf.scene.children[0])
                 this.vinyl = _gltf.scene.children[0]
-                //this.vinyl.scale.set(0.01, 0.01, 0.01)
-                this.vinyl.position.set(-0.15, -1.6, 0.5)
-                this.vinyl.rotation.y = - (Math.PI / 2)
+                this.vinyl.scale.set(0.01, 0.01, 0.01)
+                this.vinyl.position.set(15.05, - 0.3, - 0.25)
+                //this.vinyl.rotation.y = - (Math.PI / 2)
                 this.vinyl.material = new THREE.MeshToonMaterial()
                 this.group.add(this.vinyl)
             }
