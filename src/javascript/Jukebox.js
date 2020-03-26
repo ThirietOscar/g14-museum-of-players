@@ -36,7 +36,6 @@ export default class Jukebox
                 this.jukebox.material = new THREE.MeshToonMaterial()
                 this.group.add(this.jukebox)
 
-                console.log(this.jukebox)
             }
         )
 

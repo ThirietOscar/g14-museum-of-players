@@ -191,7 +191,6 @@ export default class MainPart {
             const _element = $seekBarPoints[i];
             
             _element.addEventListener('click', () => {
-                //const lastObject = currentObject
 
                 $backgroundobjects.forEach(backgroundobject => {
                     backgroundobject.classList.remove('current_object')
@@ -388,6 +387,7 @@ export default class MainPart {
 
             const intersectsGramophone = raycaster.intersectObject(gramophone.group, true)
             if(intersectsGramophone.length) {
+                console.log(intersectsGramophone)
                 hoverGramophone = true
             }
             else {
