@@ -45,5 +45,7 @@ infoButton.addEventListener('click', () =>
     infoPop.classList.toggle('main-part__information__hidden')
 })
 
+
+
 const startPart = new StartPart()
 const mainPart = new MainPart()
