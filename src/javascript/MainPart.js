@@ -131,6 +131,7 @@ export default class MainPart {
         const $seekBarPoints = document.querySelectorAll('.seek_bar_object')
         const $backgroundobjects = document.querySelectorAll('.background_object')
         const $mainPartbackground = document.querySelector('.js-main-background')
+        const $informationText = document.querySelector('.main-part__information__text')
 
         for (let i = 0; i < $seekBarPoints.length; i++) {
             const _element = $seekBarPoints[i];
@@ -146,14 +147,22 @@ export default class MainPart {
 
                 if(i == 0) {
                     currentObject = gramophone
+                    $informationText.innerHTML = `The gramophone was invented by Emile Berliner in the 1880s. It makes it possible to play extraordinary music pre-recorded on a phonographic disc. A real piece of history, whose record player melodies can be appreciated from the back of a comfortable club armchair.
+                    The first sound recording was “Au clair de la lune”.
+                    <img src="/images/schemaGramophone.png" alt="schema of a gramophone" class="schema">`
 
                 } else if(i == 1) {
 
                     currentObject = jukebox
+                    $informationText.innerHTML = `The first public phonograph was installed by Louis Glass in 1889. The jukebox therm arrived in 1930s. The jukebox is a device usually placed in a public place that can play music recorded on disc. It is a pay machine where you select a piece of music to play after inserting a coin. Originally the jukebox was often found in American bars and cafes. To encourage residents and tourists to stop littering, the city of Anvers has come up with an original idea. In different places, jukebox bins play a short song as soon as you throw your rubbish in them like "Simply The Best" by Tina Tuner or "Baby One More Time" by Britney Spears.
+                    <img src="/images/schemaJukebox.png" alt="schema of a jukebox" class="schema">`
 
                 } else if(i == 2) {
 
                     currentObject = radio
+                    $informationText.innerHTML = `The invention of radio is a collective work that began in the 1840s, starting with the discovery of electromagnetic waves, the invention of the telegraph, and culminating in the first equipment that could be used to communicate wirelessly using radio waves. In 1940, about one on two French households was equipped with a radio. In 1962 the proportion exceeded 85%, whereas today there are on average 6 radios per house.
+                    <img src="/images/schemaRadio.png" alt="schema of a radio" class="schema">`
+                    
 
                 } else if(i == 3) {
 

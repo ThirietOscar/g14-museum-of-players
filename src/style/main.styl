@@ -180,7 +180,7 @@ h2
 
         &__information
             width 580px
-            height 325px
+            height auto
             background-color rgba(255, 255, 255, 0.4)
             backdrop-filter blur(7px)
             border-radius 9px
@@ -199,6 +199,11 @@ h2
                 font-family 'HelveticaNeue'
                 font-weight lighter
                 line-height 25px
+
+                .schema
+                    margin 0, auto
+                    height 350px
+                    width auto
 
     .seek_bar
         position absolute
@@ -308,6 +313,7 @@ h2
                     animation-name equalizer-stop
                     animation-iteration-count 1
                     animation-fill-mode forwards
+
 
 @keyframes equalizer-play
     0%
