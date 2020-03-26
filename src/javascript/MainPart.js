@@ -1,6 +1,9 @@
 import { TweenLite } from 'gsap/all'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import { PositionalAudioHelper } from 'three/examples/jsm/helpers/PositionalAudioHelper';
+
+//./jsm/helpers/PositionalAudioHelper.js';
 
 //Import object models
 import Gramophone from './Gramophone.js'
@@ -102,7 +105,6 @@ export default class MainPart {
         // Jukebox
         const jukebox = new Jukebox()
         scene.add(jukebox.group)
-
         const jukeboxSound = new THREE.PositionalAudio(listener)
 
         const jukeboxAudioLoader = new THREE.AudioLoader();
@@ -112,6 +114,9 @@ export default class MainPart {
             jukeboxSound.setDirectionalCone(180, 230, 0.1)
         })
 
+        const helper = new PositionalAudioHelper( jukeboxSound, 0.1 );
+        jukeboxSound.add( helper )
+        
         jukebox.group.add(jukeboxSound)
 
         /**
