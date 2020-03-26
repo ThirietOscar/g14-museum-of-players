@@ -25,7 +25,7 @@ export default class MP3
         gltfLoader.setDRACOLoader(dracoLoader)
 
         gltfLoader.load(
-            '/models/MP3/model.gltf',
+            './models/MP3/model.gltf',
             (_gltf) =>
             {   
                 this.MP3 = _gltf.scene.children[0]

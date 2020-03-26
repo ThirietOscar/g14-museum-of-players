@@ -26,7 +26,7 @@ export default class Jukebox
         gltfLoader.setDRACOLoader(dracoLoader)
 
         gltfLoader.load(
-            '/models/jukebox/model.gltf',
+            './models/jukebox/model.gltf',
             (_gltf) =>
             {   
                 this.jukebox = _gltf.scene.children[0]

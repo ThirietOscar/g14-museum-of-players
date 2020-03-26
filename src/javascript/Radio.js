@@ -25,7 +25,7 @@ export default class Radio
         gltfLoader.setDRACOLoader(dracoLoader)
 
         gltfLoader.load(
-            '/models/radio/model.gltf',
+            './models/radio/model.gltf',
             (_gltf) =>
             {   
                 this.radio = _gltf.scene.children[0]
