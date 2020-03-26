@@ -33,9 +33,10 @@ export default class Jukebox
             {   
                 this.jukebox = _gltf.scene.children[0]
                 this.jukebox.scale.set(2.4, 2.4, 2.4)
-                this.jukebox.position.set(5.13, - 0.4, - 0.8)
                 this.jukebox.material = new THREE.MeshToonMaterial()
                 this.group.add(this.jukebox)
+
+                console.log(this.jukebox)
             }
         )
 

@@ -78,20 +78,24 @@ export default class MainPart {
          * GRAMOPHONE
          */
         const gramophone = new Gramophone()
+        gramophone.group.position.set(-0.15, -1.6, 0.5)
         scene.add(gramophone.group)
 
         // create the PositionalAudio object (passing in the listener)
         const gramophoneSound = new THREE.PositionalAudio(listener)
 
         // load a sound and set it as the PositionalAudio object's buffer
-        const gramophoneAudioLoader = new THREE.AudioLoader();
-        gramophoneAudioLoader.load(gramophoneAudioSource, (buffer) => {
+        const audioLoader = new THREE.AudioLoader();
+
+        audioLoader.load(gramophoneAudioSource, (buffer) => {
             gramophoneSound.setBuffer(buffer)
             gramophoneSound.setRefDistance(0.5)
             gramophoneSound.setDirectionalCone(180, 230, 0.1)
         })
 
         gramophone.group.add(gramophoneSound)
+
+        console.log(gramophone.gramophone)
 
         let currentObject = gramophone
 
@@ -104,11 +108,12 @@ export default class MainPart {
 
         // Jukebox
         const jukebox = new Jukebox()
+        jukebox.group.position.set(5.13, - 0.4, - 0.8)
         scene.add(jukebox.group)
+
         const jukeboxSound = new THREE.PositionalAudio(listener)
 
-        const jukeboxAudioLoader = new THREE.AudioLoader();
-        jukeboxAudioLoader.load(jukeboxAudioSource, (buffer) => {
+        audioLoader.load(jukeboxAudioSource, (buffer) => {
             jukeboxSound.setBuffer(buffer)
             jukeboxSound.setRefDistance(0.5)
             jukeboxSound.setDirectionalCone(180, 230, 0.1)
@@ -123,12 +128,12 @@ export default class MainPart {
          * RADIO
          */
         const radio = new Radio()
+        radio.group.position.set(10, - 0.2, 0)
         scene.add(radio.group)
 
         const radioSound = new THREE.PositionalAudio(listener)
 
-        const radioAudioLoader = new THREE.AudioLoader();
-        radioAudioLoader.load(radioAudioSource, (buffer) => {
+        audioLoader.load(radioAudioSource, (buffer) => {
             radioSound.setBuffer(buffer)
             radioSound.setRefDistance(0.5)
             radioSound.setDirectionalCone(180, 230, 0.1)
@@ -140,12 +145,12 @@ export default class MainPart {
          * VINYL
          */
         const vinyl = new Vinyl()
+        vinyl.group.position.set(15.05, - 0.3, - 0.25)
         scene.add(vinyl.group)
 
         const vinylSound = new THREE.PositionalAudio(listener)
 
-        const vinylAudioLoader = new THREE.AudioLoader();
-        vinylAudioLoader.load(vinylAudioSource, (buffer) => {
+        audioLoader.load(vinylAudioSource, (buffer) => {
             vinylSound.setBuffer(buffer)
             vinylSound.setRefDistance(0.5)
             vinylSound.setDirectionalCone(180, 230, 0.1)
@@ -164,19 +169,17 @@ export default class MainPart {
          * MP3
          */
         const mp3 = new MP3()
+        mp3.group.position.set(25.25, 0.5, -0.5)
         scene.add(mp3.group)
-
         const mp3Sound = new THREE.PositionalAudio(listener)
 
-        const mp3AudioLoader = new THREE.AudioLoader();
-        mp3AudioLoader.load(MP3AudioSource, (buffer) => {
+        audioLoader.load(MP3AudioSource, (buffer) => {
             mp3Sound.setBuffer(buffer)
             mp3Sound.setRefDistance(0.5)
             mp3Sound.setDirectionalCone(180, 230, 0.1)
         })
 
         mp3.group.add(mp3Sound)
-
         /**
          * SeekBar 
          */

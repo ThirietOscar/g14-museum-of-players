@@ -33,10 +33,9 @@ export default class Gramophone
             (_gltf) =>
             {   
                 this.gramophone = _gltf.scene.children[0]
-                //this.gramophone.scale.set(0.01, 0.01, 0.01)
-                this.gramophone.position.set(-0.15, -1.6, 0.5)
                 this.gramophone.rotation.y = - (Math.PI / 2)
                 this.gramophone.material = new THREE.MeshToonMaterial()
+
                 this.group.add(this.gramophone)
             }
         )

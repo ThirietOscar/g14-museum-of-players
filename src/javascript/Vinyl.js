@@ -32,7 +32,6 @@ export default class Vinyl
             {   
                 this.vinyl = _gltf.scene.children[0]
                 this.vinyl.scale.set(0.01, 0.01, 0.01)
-                this.vinyl.position.set(15.05, - 0.3, - 0.25)
                 //this.vinyl.rotation.y = - (Math.PI / 2)
                 this.vinyl.material = new THREE.MeshToonMaterial()
                 this.group.add(this.vinyl)
