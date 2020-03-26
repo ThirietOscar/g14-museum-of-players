@@ -94,8 +94,6 @@ export default class MainPart {
 
         gramophone.group.add(gramophoneSound)
 
-        console.log(gramophone.gramophone)
-
         let currentObject = gramophone
 
         // const gramophoneSoundHelper = new THREE.PositionalAudioHelper(gramophoneSound)
@@ -227,18 +225,26 @@ export default class MainPart {
                     ease: 'Power3.easeInOut'
                 })
 
-                // gsap.to($mainPartbackground, 1, {
-                //     background: currentObject.background,
-                //     ease: 'Power3.easeIn'
-                // })
-
                 $mainPartbackground.style.background = currentObject.background
-                $objectName.innerText = currentObject.name
-                $objectName.style.color = currentObject.textColor
+
+                
+               const objectNameAnimation = gsap.to($objectName, 1, {
+                    opacity: 0,
+                    ease: 'Power3.easeIn',
+                    onComplete: () => {
+                        $objectName.innerText = currentObject.name
+                        $objectName.style.color = currentObject.textColor
+                        objectNameAnimation.reverse()
+                    }
+                })
+                objectNameAnimation.play()
+                
                 $informationText.innerHTML = currentObject.text
                 $schema.src = currentObject.schema
             })
         }
+
+        
 
         /**
          * Ray Caster
@@ -375,11 +381,9 @@ export default class MainPart {
          */
         const loop = () => {
             window.requestAnimationFrame(loop)
-            //console.log(camera.position)
+
             // Camera
             camera.lookAt(currentObject.scenePosition)
-
-            //console.log(camera.lookAt(currentObject.scenePosition))
 
             // Cursor raycasting
             const raycasterCursor = new THREE.Vector2(cursor.x * 2, - cursor.y * 2)
@@ -387,7 +391,6 @@ export default class MainPart {
 
             const intersectsGramophone = raycaster.intersectObject(gramophone.group, true)
             if(intersectsGramophone.length) {
-                console.log(intersectsGramophone)
                 hoverGramophone = true
             }
             else {
