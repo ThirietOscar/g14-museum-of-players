@@ -1,7 +1,6 @@
 import { gsap } from 'gsap'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import { PositionalAudioHelper } from 'three/examples/jsm/helpers/PositionalAudioHelper';
 
 //./jsm/helpers/PositionalAudioHelper.js';
 
@@ -118,9 +117,6 @@ export default class MainPart {
             jukeboxSound.setRefDistance(0.5)
             jukeboxSound.setDirectionalCone(180, 230, 0.1)
         })
-
-        const helper = new PositionalAudioHelper( jukeboxSound, 0.1 );
-        jukeboxSound.add( helper )
         
         jukebox.group.add(jukeboxSound)
 
