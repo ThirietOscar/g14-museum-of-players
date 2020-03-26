@@ -26,7 +26,7 @@ export default class MP3
                 console.log(_gltf.scene.children[0])
                 this.MP3 = _gltf.scene.children[0]
                 this.MP3.scale.set(0.015, 0.015, 0.015)
-                this.MP3.position.set(3.5, 0.5, -0.5)
+                this.MP3.position.set(3.25, 0.5, -0.5)
                 this.MP3.rotation.x = (Math.PI / 2)
                 this.MP3.material = new THREE.MeshToonMaterial()
                 this.group.add(this.MP3)
