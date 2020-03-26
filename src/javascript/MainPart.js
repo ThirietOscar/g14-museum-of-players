@@ -210,15 +210,15 @@ export default class MainPart {
             const rotSpeed = 0.04
             const x = camera.position.x
             const z = camera.position.z
-            
+
             //If mouse is down
             if(mouseDown == true) {
                 if(mousePosX - lastMousePosX > 0) {
-                    camera.position.x = x * Math.cos(rotSpeed) + z * Math.sin(rotSpeed);
-                    camera.position.z = z * Math.cos(rotSpeed) - x * Math.sin(rotSpeed);
+                    camera.position.x = Math.cos(-rotSpeed) * (x - currentObject.scenePosition.x) - Math.sin(-rotSpeed) * (z-currentObject.scenePosition.z) + currentObject.scenePosition.x
+                    camera.position.z = Math.sin(-rotSpeed) * (x - currentObject.scenePosition.x) + Math.cos(-rotSpeed) * (z - currentObject.scenePosition.z) + currentObject.scenePosition.z
                 } else {
-                    camera.position.x = x * Math.cos(rotSpeed) - z * Math.sin(rotSpeed)
-                    camera.position.z = z * Math.cos(rotSpeed) + x * Math.sin(rotSpeed)  
+                    camera.position.x = Math.cos(rotSpeed) * (x - currentObject.scenePosition.x) - Math.sin(rotSpeed) * (z-currentObject.scenePosition.z) + currentObject.scenePosition.x
+                    camera.position.z = Math.sin(rotSpeed) * (x - currentObject.scenePosition.x) + Math.cos(rotSpeed) * (z - currentObject.scenePosition.z) + currentObject.scenePosition.z
                 }
             }
 
@@ -262,7 +262,7 @@ export default class MainPart {
             window.requestAnimationFrame(loop)
             //console.log(camera.position)
             // Camera
-            camera.lookAt(currentObject.group.position)
+            camera.lookAt(currentObject.scenePosition)
 
             // Cursor raycasting
             const raycasterCursor = new THREE.Vector2(cursor.x * 2, - cursor.y * 2)

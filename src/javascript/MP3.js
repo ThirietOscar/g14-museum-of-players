@@ -9,10 +9,10 @@ export default class MP3
     {
         this.group = new THREE.Group()
 
-        this.cameraPosition = new THREE.Vector3(0.521, 0.0329, 0.98)
+        this.cameraPosition = new THREE.Vector3(3.521, 0.0329, 0.98)
 
-        this.scenePosition = new THREE.Vector3(0, 0, 0)
-        
+        this.scenePosition = new THREE.Vector3(3, 0, 0)
+
         const dracoLoader = new DRACOLoader()
         dracoLoader.setDecoderPath('/draco/')
 
@@ -26,7 +26,7 @@ export default class MP3
                 console.log(_gltf.scene.children[0])
                 this.MP3 = _gltf.scene.children[0]
                 this.MP3.scale.set(0.015, 0.015, 0.015)
-                this.MP3.position.set(0.5, 0.5, -0.5)
+                this.MP3.position.set(3.5, 0.5, -0.5)
                 this.MP3.rotation.x = (Math.PI / 2)
                 this.MP3.material = new THREE.MeshToonMaterial()
                 this.group.add(this.MP3)
