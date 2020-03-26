@@ -1,6 +1,7 @@
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
+import jukeboxAudioSource from '../sounds/jukebox.mp3'
 
 export default class Jukebox
 {
@@ -31,5 +32,8 @@ export default class Jukebox
                 this.group.add(this.jukebox)
             }
         )
+
+        this.audio = new Audio(jukeboxAudioSource)
+        this.audio.volume = 0.4
     }
 }

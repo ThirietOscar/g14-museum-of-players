@@ -11,6 +11,7 @@ import MP3 from './MP3.js'
 
 //Import sounds
 import gramophoneAudioSource from '../sounds/gramophone.mp3'
+import jukeboxAudioSource from '../sounds/jukebox.mp3'
 
 export default class MainPart {
     constructor() {
@@ -98,6 +99,18 @@ export default class MainPart {
         // Jukebox
         const jukebox = new Jukebox()
         scene.add(jukebox.group)
+
+        const jukeboxSound = new THREE.PositionalAudio(listener)
+
+        const jukeboxAudioLoader = new THREE.AudioLoader();
+        jukeboxAudioLoader.load(jukeboxAudioSource, (buffer) => {
+            jukeboxSound.setBuffer(buffer)
+            jukeboxSound.setRefDistance(0.5)
+            jukeboxSound.setDirectionalCone(180, 230, 0.1)
+        })
+
+        jukebox.group.add(jukeboxSound)
+
 
         /**
          * Radio
@@ -271,7 +284,16 @@ export default class MainPart {
 
         renderer.domElement.addEventListener('click', () => {
             if(hoverGramophone == true) {
-               //gramophone.audio.play()
+               gramophone.audio.play()
+               //gramophoneSound.play()
+            }
+        })
+
+        let hoverJukebox = false
+
+        renderer.domElement.addEventListener('click', () => {
+            if(hoverJukebox == true) {
+               jukebox.audio.play()
                //gramophoneSound.play()
             }
         })
@@ -318,6 +340,14 @@ export default class MainPart {
             }
             else {
                 hoverGramophone = false
+            }
+
+            const intersectsJukebox = raycaster.intersectObject(jukebox.group, true)
+            if(intersectsJukebox.length) {
+                hoverJukebox = true
+            }
+            else {
+                hoverJukebox = false
             }
 
             // Render
