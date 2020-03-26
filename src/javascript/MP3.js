@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
-//import MP3AudioSource from '../sounds/baladeur.mp3'
+import MP3AudioSource from '../sounds/baladeur.mp3'
 
 export default class MP3
 {

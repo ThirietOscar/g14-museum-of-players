@@ -14,7 +14,7 @@ import gramophoneAudioSource from '../sounds/gramophone.mp3'
 import jukeboxAudioSource from '../sounds/jukebox.mp3'
 import radioAudioSource from '../sounds/radio.mp3'
 import vinylAudioSource from '../sounds/platine.mp3'
-//import MP3AudioSource from '../sounds/baladeur.mp3'
+import MP3AudioSource from '../sounds/baladeur.mp3'
 
 export default class MainPart {
     constructor() {
@@ -96,7 +96,7 @@ export default class MainPart {
         // gramophoneSound.add(gramophoneSoundHelper)
 
         /**
-         * Jukebox
+         * JUKEBOX
          */
 
         // Jukebox
@@ -115,7 +115,7 @@ export default class MainPart {
         jukebox.group.add(jukeboxSound)
 
         /**
-         * Radio
+         * RADIO
          */
         const radio = new Radio()
         scene.add(radio.group)
@@ -132,7 +132,7 @@ export default class MainPart {
         radio.group.add(radioSound)
 
         /**
-         * Vinyl
+         * VINYL
          */
         const vinyl = new Vinyl()
         scene.add(vinyl.group)
@@ -158,19 +158,19 @@ export default class MainPart {
         /**
          * MP3
          */
-        // const mp3 = new MP3()
-        // scene.add(mp3.group)
+        const mp3 = new MP3()
+        scene.add(mp3.group)
 
-        // const mp3Sound = new THREE.PositionalAudio(listener)
+        const mp3Sound = new THREE.PositionalAudio(listener)
 
-        // const mp3AudioLoader = new THREE.AudioLoader();
-        // mp3AudioLoader.load(mp3AudioSource, (buffer) => {
-        //     mp3Sound.setBuffer(buffer)
-        //     mp3Sound.setRefDistance(0.5)
-        //     mp3Sound.setDirectionalCone(180, 230, 0.1)
-        // })
+        const mp3AudioLoader = new THREE.AudioLoader();
+        mp3AudioLoader.load(MP3AudioSource, (buffer) => {
+            mp3Sound.setBuffer(buffer)
+            mp3Sound.setRefDistance(0.5)
+            mp3Sound.setDirectionalCone(180, 230, 0.1)
+        })
 
-        // mp3.group.add(mp3Sound)
+        mp3.group.add(mp3Sound)
 
         /**
          * SeekBar 
@@ -324,7 +324,7 @@ export default class MainPart {
         let hoverJukebox = false
         let hoverRadio = false
         let hoverVinyl = false
-        //let hoverMP3 = false
+        let hoverMP3 = false
 
         renderer.domElement.addEventListener('click', () => {
             if(hoverGramophone == true) {
@@ -339,9 +339,9 @@ export default class MainPart {
             if(hoverVinyl == true) {
                 vinylSound.play()
             }
-            // if(hoverMP3 == true) {
-            //  mp3Sound.play()
-            // }
+            if(hoverMP3 == true) {
+                mp3Sound.play()
+            }
         })
 
         /**
@@ -412,13 +412,13 @@ export default class MainPart {
                 hoverVinyl = false
             }
 
-            // const intersectsMP3 = raycaster.intersectObject(mp3.group, true)
-            // if(intersectsMP3.length) {
-            //     hoverMP3 = true
-            // }
-            // else {
-            //     hoverMP3 = false
-            // }
+            const intersectsMP3 = raycaster.intersectObject(mp3.group, true)
+            if(intersectsMP3.length) {
+                hoverMP3 = true
+            }
+            else {
+                hoverMP3 = false
+            }
 
             // Render
             renderer.render(scene, camera)
