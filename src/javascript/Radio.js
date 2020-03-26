@@ -32,7 +32,7 @@ export default class Radio
             {   
                 this.radio = _gltf.scene.children[0]
                 this.radio.scale.set(0.2, 0.2, 0.2)
-                this.radio.rotation.y = Math.PI * (-1)
+                this.radio.rotation.y = -12.5
                 this.group.add(this.radio)
                 this.group.traverse((_object) => {
                     if(_object instanceof THREE.Mesh) {
