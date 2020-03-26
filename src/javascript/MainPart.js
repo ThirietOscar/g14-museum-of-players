@@ -173,10 +173,12 @@ export default class MainPart {
                     ease: 'Power3.easeInOut'
                 })
 
-                TweenLite.to($mainPartbackground, 1, {
-                    background: currentObject.background,
-                    ease: 'Power3.easeIn'
-                })
+                // TweenLite.to($mainPartbackground, 1, {
+                //     background: currentObject.background,
+                //     ease: 'Power3.easeIn'
+                // })
+
+                $mainPartbackground.style.background = currentObject.background
             })
         }
 
