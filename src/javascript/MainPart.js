@@ -366,24 +366,59 @@ export default class MainPart {
 
         renderer.domElement.addEventListener('click', () => {
             if(hoverGramophone == true) {
-               gramophoneSound.play()
-               $equalizer[0].classList.add('equalizer--on')
+                if(gramophoneSound.isPlaying === true){
+                    gramophoneSound.pause()
+                    $equalizer[0].classList.remove('equalizer--on')
+                }
+                else{
+                    gramophoneSound.play()
+                    $equalizer[0].classList.add('equalizer--on')
+
+                }
             }
             if(hoverJukebox == true) {
-                jukeboxSound.play()
-                $equalizer[0].classList.add('equalizer--on')
-             }
+                if(jukeboxSound.isPlaying === true){
+                    jukeboxSound.pause()
+                    $equalizer[0].classList.remove('equalizer--on')
+                }
+                else{
+                    jukeboxSound.play()
+                    $equalizer[0].classList.add('equalizer--on')
+
+                }
+            }
             if(hoverRadio == true) {
-                radioSound.play()
-                $equalizer[0].classList.add('equalizer--on')
+                if(radioSound.isPlaying === true){
+                    radioSound.pause()
+                    $equalizer[0].classList.remove('equalizer--on')
+                }
+                else{
+                    radioSound.play()
+                    $equalizer[0].classList.add('equalizer--on')
+
+                }
             }
             if(hoverVinyl == true) {
-                vinylSound.play()
-                $equalizer[0].classList.add('equalizer--on')
+                if(vinylSound.isPlaying === true){
+                    vinylSound.pause()
+                    $equalizer[0].classList.remove('equalizer--on')
+                }
+                else{
+                    vinylSound.play()
+                    $equalizer[0].classList.add('equalizer--on')
+
+                }
             }
             if(hoverMP3 == true) {
-                mp3Sound.play()
-                $equalizer[0].classList.add('equalizer--on')
+                if(MP3Sound.isPlaying === true){
+                    MP3Sound.pause()
+                    $equalizer[0].classList.remove('equalizer--on')
+                }
+                else{
+                    MP3Sound.play()
+                    $equalizer[0].classList.add('equalizer--on')
+
+                }
             }
         })
 
