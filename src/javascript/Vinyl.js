@@ -10,6 +10,7 @@ export default class Vinyl
         this.group = new THREE.Group()
 
         this.name='Vinyl'
+        this.text='The vinyl phonograph record is the fruit of the work of several scientists such as the French Charles Cros, Emile Berliner and the American Thomas Edison during the 20th century. This disc, generally black in colour, is crossed by a microscopic spiral groove whose beginning is generally on the outside and the end in the centre of the disc. If we could stretch all the data contained on a CD in a straight line, it would arrive at a line about 6.5 kilometres long.'
 
         this.background = 'linear-gradient(180deg, #CCAF95 -37.79%, #FFF3E9 100%)'
         this.textColor = '#BAA593'
@@ -25,7 +26,7 @@ export default class Vinyl
         gltfLoader.setDRACOLoader(dracoLoader)
 
         gltfLoader.load(
-            '/models/vinyl/model.gltf',
+            './models/vinyl/model.gltf',
             (_gltf) =>
             {   
                 this.vinyl = _gltf.scene.children[0]

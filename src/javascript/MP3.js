@@ -10,6 +10,7 @@ export default class MP3
         this.group = new THREE.Group()
 
         this.name='MP3'
+        this.text='The portable player is a portable device for storing tracks in the form of computer files, the best known format being the mp3 format. The first Walkman is marketed by Sony in 1979, its invention was invented by sony engineers led by Akio Morita. The word "walkman" was to be reserved for Asia, with Sony preferring "Soundabout" in England, "Stowaway" in Sweden or "Freestyle" in Australia.'
 
         this.background = 'linear-gradient(180deg, #9C4A40 -63.62%, #FFECEA 100%)'
         this.textColor = '#AF7D77'
@@ -25,7 +26,7 @@ export default class MP3
         gltfLoader.setDRACOLoader(dracoLoader)
 
         gltfLoader.load(
-            '/models/MP3/model.gltf',
+            './models/MP3/model.gltf',
             (_gltf) =>
             {   
                 this.MP3 = _gltf.scene.children[0]
