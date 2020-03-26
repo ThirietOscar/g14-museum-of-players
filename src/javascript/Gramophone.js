@@ -40,7 +40,7 @@ export default class Gramophone
             }
         )
 
-        this.audio = new Audio(gramophoneAudioSource)
-        this.audio.volume = 0.4
+        // this.audio = new Audio(gramophoneAudioSource)
+        // this.audio.volume = 0.4
     }
 }

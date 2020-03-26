@@ -328,20 +328,19 @@ export default class MainPart {
 
         renderer.domElement.addEventListener('click', () => {
             if(hoverGramophone == true) {
-               gramophone.audio.play()
-               //gramophoneSound.play()
+               gramophoneSound.play()
             }
             if(hoverJukebox == true) {
-                jukebox.audio.play()
+                jukeboxSound.play()
              }
             if(hoverRadio == true) {
-                radio.audio.play()
+                radioSound.play()
             }
             if(hoverVinyl == true) {
-                vinyl.audio.play()
+                vinylSound.play()
             }
             // if(hoverMP3 == true) {
-            //     mp3.audio.play()
+            //  mp3Sound.play()
             // }
         })
 

@@ -45,7 +45,7 @@ export default class Radio
             }
         )
 
-        this.audio = new Audio(radioAudioSource)
-        this.audio.volume = 0.4
+        // this.audio = new Audio(radioAudioSource)
+        // this.audio.volume = 0.4
     }
 }

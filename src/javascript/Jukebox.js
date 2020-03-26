@@ -38,7 +38,7 @@ export default class Jukebox
             }
         )
 
-        this.audio = new Audio(jukeboxAudioSource)
-        this.audio.volume = 0.4
+        // this.audio = new Audio(jukeboxAudioSource)
+        // this.audio.volume = 0.4
     }
 }

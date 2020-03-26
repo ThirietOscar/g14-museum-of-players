@@ -38,7 +38,7 @@ export default class Vinyl
             }
         )
 
-        this.audio = new Audio(vinylAudioSource)
-        this.audio.volume = 0.4
+        // this.audio = new Audio(vinylAudioSource)
+        // this.audio.volume = 0.4
     }
 }
