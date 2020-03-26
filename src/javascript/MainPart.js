@@ -167,10 +167,14 @@ export default class MainPart {
                 } else if(i == 3) {
 
                     currentObject = vinyl
+                    $informationText.innerHTML = `The vinyl phonograph record is the fruit of the work of several scientists such as the French Charles Cros, Emile Berliner and the American Thomas Edison during the 20th century. This disc, generally black in colour, is crossed by a microscopic spiral groove whose beginning is generally on the outside and the end in the centre of the disc. If we could stretch all the data contained on a CD in a straight line, it would arrive at a line about 6.5 kilometres long.
+                    <img src="/images/schemaPlatine.png" alt="schema of a vinyl" class="schema">`
 
                 } else if(i == 4) {
 
                     currentObject = mp3
+                    $informationText.innerHTML = `The portable player is a portable device for storing tracks in the form of computer files, the best known format being the mp3 format. The first Walkman is marketed by Sony in 1979, its invention was invented by sony engineers led by Akio Morita. The word "walkman" was to be reserved for Asia, with Sony preferring "Soundabout" in England, "Stowaway" in Sweden or "Freestyle" in Australia.
+                    <img src="/images/schemaBaladeur.png" alt="schema of a MP3" class="schema">`
                 }
 
                 //const test = Math.atan2(currentObject.scenePosition.z - camera.position.z, currentObject.scenePosition.z - camera.position.x)
