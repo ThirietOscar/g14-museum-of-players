@@ -132,6 +132,7 @@ export default class MainPart {
         const $backgroundobjects = document.querySelectorAll('.background_object')
         const $mainPartbackground = document.querySelector('.js-main-background')
         const $informationText = document.querySelector('.main-part__information__text')
+        const $objectName = document.querySelector('.main-part__object__name')
 
         for (let i = 0; i < $seekBarPoints.length; i++) {
             const _element = $seekBarPoints[i];
@@ -192,8 +193,8 @@ export default class MainPart {
                 // })
 
                 $mainPartbackground.style.background = currentObject.background
-                $informationText.innerText = currentObject.name
-                $informationText.style.color = currentObject.textColor
+                $objectName.innerText = currentObject.name
+                $objectName.style.color = currentObject.textColor
             })
         }
 
