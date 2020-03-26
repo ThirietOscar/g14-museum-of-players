@@ -19,7 +19,6 @@ export default class Gramophone
             '/models/gramophone/model.gltf',
             (_gltf) =>
             {   
-                console.log(_gltf.scene.children[0])
                 this.gramophone = _gltf.scene.children[0]
                 //this.gramophone.scale.set(0.01, 0.01, 0.01)
                 this.gramophone.position.set(-0.15, -1.6, 0.5)

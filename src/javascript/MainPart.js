@@ -108,7 +108,7 @@ export default class MainPart {
                 console.log('click')
 
                 TweenLite.to(camera.position, 2, {
-                    x: camera.x + 0.5,
+                    x: camera.position.x + 0.5,
                     ease: 'Power3.easeInOut'
                 })
             })
