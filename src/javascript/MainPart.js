@@ -120,10 +120,21 @@ export default class MainPart {
             const _element = $seekBarPoints[i];
             
             _element.addEventListener('click', () => {
-                console.log('click')
+
+                if(i == 0) {
+                    currentObject = gramophone
+
+                } else if(i == 4) {
+
+                    currentObject = mp3
+                }
+
+                console.log(currentObject)
 
                 TweenLite.to(camera.position, 2, {
-                    x: camera.position.x + 0.5,
+                    x: currentObject.cameraPosition.x,
+                    y: currentObject.cameraPosition.y,
+                    z: currentObject.cameraPosition.z,
                     ease: 'Power3.easeInOut'
                 })
             })
@@ -251,7 +262,7 @@ export default class MainPart {
             window.requestAnimationFrame(loop)
             //console.log(camera.position)
             // Camera
-            camera.lookAt(scene.position)
+            camera.lookAt(currentObject.group.position)
 
             // Cursor raycasting
             const raycasterCursor = new THREE.Vector2(cursor.x * 2, - cursor.y * 2)

@@ -9,6 +9,10 @@ export default class MP3
     {
         this.group = new THREE.Group()
 
+        this.cameraPosition = new THREE.Vector3(0.521, 0.0329, 0.98)
+
+        this.scenePosition = new THREE.Vector3(0, 0, 0)
+        
         const dracoLoader = new DRACOLoader()
         dracoLoader.setDecoderPath('/draco/')
 
