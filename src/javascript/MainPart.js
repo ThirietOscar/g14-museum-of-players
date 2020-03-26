@@ -11,6 +11,10 @@ import MP3 from './MP3.js'
 
 //Import sounds
 import gramophoneAudioSource from '../sounds/gramophone.mp3'
+import jukeboxAudioSource from '../sounds/jukebox.mp3'
+import radioAudioSource from '../sounds/radio.mp3'
+import vinylAudioSource from '../sounds/platine.mp3'
+//import MP3AudioSource from '../sounds/baladeur.mp3'
 
 export default class MainPart {
     constructor() {
@@ -99,17 +103,50 @@ export default class MainPart {
         const jukebox = new Jukebox()
         scene.add(jukebox.group)
 
+        const jukeboxSound = new THREE.PositionalAudio(listener)
+
+        const jukeboxAudioLoader = new THREE.AudioLoader();
+        jukeboxAudioLoader.load(jukeboxAudioSource, (buffer) => {
+            jukeboxSound.setBuffer(buffer)
+            jukeboxSound.setRefDistance(0.5)
+            jukeboxSound.setDirectionalCone(180, 230, 0.1)
+        })
+
+        jukebox.group.add(jukeboxSound)
+
         /**
          * Radio
          */
         const radio = new Radio()
         scene.add(radio.group)
 
+        const radioSound = new THREE.PositionalAudio(listener)
+
+        const radioAudioLoader = new THREE.AudioLoader();
+        radioAudioLoader.load(radioAudioSource, (buffer) => {
+            radioSound.setBuffer(buffer)
+            radioSound.setRefDistance(0.5)
+            radioSound.setDirectionalCone(180, 230, 0.1)
+        })
+
+        radio.group.add(radioSound)
+
         /**
          * Vinyl
          */
         const vinyl = new Vinyl()
         scene.add(vinyl.group)
+
+        const vinylSound = new THREE.PositionalAudio(listener)
+
+        const vinylAudioLoader = new THREE.AudioLoader();
+        vinylAudioLoader.load(vinylAudioSource, (buffer) => {
+            vinylSound.setBuffer(buffer)
+            vinylSound.setRefDistance(0.5)
+            vinylSound.setDirectionalCone(180, 230, 0.1)
+        })
+
+        vinyl.group.add(vinylSound)
 
 
         // var geometry = new THREE.PlaneGeometry( 5, 5, 20 );
@@ -121,8 +158,19 @@ export default class MainPart {
         /**
          * MP3
          */
-        const mp3 = new MP3()
-        scene.add(mp3.group)
+        // const mp3 = new MP3()
+        // scene.add(mp3.group)
+
+        // const mp3Sound = new THREE.PositionalAudio(listener)
+
+        // const mp3AudioLoader = new THREE.AudioLoader();
+        // mp3AudioLoader.load(mp3AudioSource, (buffer) => {
+        //     mp3Sound.setBuffer(buffer)
+        //     mp3Sound.setRefDistance(0.5)
+        //     mp3Sound.setDirectionalCone(180, 230, 0.1)
+        // })
+
+        // mp3.group.add(mp3Sound)
 
         /**
          * SeekBar 
@@ -133,7 +181,7 @@ export default class MainPart {
         const $mainPartbackground = document.querySelector('.js-main-background')
         const $informationText = document.querySelector('.main-part__information__text')
         const $objectName = document.querySelector('.main-part__object__name')
-
+        
         for (let i = 0; i < $seekBarPoints.length; i++) {
             const _element = $seekBarPoints[i];
             
@@ -148,34 +196,22 @@ export default class MainPart {
 
                 if(i == 0) {
                     currentObject = gramophone
-                    $informationText.innerHTML = `The gramophone was invented by Emile Berliner in the 1880s. It makes it possible to play extraordinary music pre-recorded on a phonographic disc. A real piece of history, whose record player melodies can be appreciated from the back of a comfortable club armchair.
-                    The first sound recording was “Au clair de la lune”.
-                    <img src="/images/schemaGramophone.png" alt="schema of a gramophone" class="schema">`
 
                 } else if(i == 1) {
 
                     currentObject = jukebox
-                    $informationText.innerHTML = `The first public phonograph was installed by Louis Glass in 1889. The jukebox therm arrived in 1930s. The jukebox is a device usually placed in a public place that can play music recorded on disc. It is a pay machine where you select a piece of music to play after inserting a coin. Originally the jukebox was often found in American bars and cafes. To encourage residents and tourists to stop littering, the city of Anvers has come up with an original idea. In different places, jukebox bins play a short song as soon as you throw your rubbish in them like "Simply The Best" by Tina Tuner or "Baby One More Time" by Britney Spears.
-                    <img src="/images/schemaJukebox.png" alt="schema of a jukebox" class="schema">`
 
                 } else if(i == 2) {
 
                     currentObject = radio
-                    $informationText.innerHTML = `The invention of radio is a collective work that began in the 1840s, starting with the discovery of electromagnetic waves, the invention of the telegraph, and culminating in the first equipment that could be used to communicate wirelessly using radio waves. In 1940, about one on two French households was equipped with a radio. In 1962 the proportion exceeded 85%, whereas today there are on average 6 radios per house.
-                    <img src="/images/schemaRadio.png" alt="schema of a radio" class="schema">`
                     
-
                 } else if(i == 3) {
 
                     currentObject = vinyl
-                    $informationText.innerHTML = `The vinyl phonograph record is the fruit of the work of several scientists such as the French Charles Cros, Emile Berliner and the American Thomas Edison during the 20th century. This disc, generally black in colour, is crossed by a microscopic spiral groove whose beginning is generally on the outside and the end in the centre of the disc. If we could stretch all the data contained on a CD in a straight line, it would arrive at a line about 6.5 kilometres long.
-                    <img src="/images/schemaPlatine.png" alt="schema of a vinyl" class="schema">`
 
                 } else if(i == 4) {
 
                     currentObject = mp3
-                    $informationText.innerHTML = `The portable player is a portable device for storing tracks in the form of computer files, the best known format being the mp3 format. The first Walkman is marketed by Sony in 1979, its invention was invented by sony engineers led by Akio Morita. The word "walkman" was to be reserved for Asia, with Sony preferring "Soundabout" in England, "Stowaway" in Sweden or "Freestyle" in Australia.
-                    <img src="/images/schemaBaladeur.png" alt="schema of a MP3" class="schema">`
                 }
 
                 //const test = Math.atan2(currentObject.scenePosition.z - camera.position.z, currentObject.scenePosition.z - camera.position.x)
@@ -195,6 +231,7 @@ export default class MainPart {
                 $mainPartbackground.style.background = currentObject.background
                 $objectName.innerText = currentObject.name
                 $objectName.style.color = currentObject.textColor
+                $informationText.innerHTML = currentObject.text
             })
         }
 
@@ -284,12 +321,28 @@ export default class MainPart {
         })
 
         let hoverGramophone = false
+        let hoverJukebox = false
+        let hoverRadio = false
+        let hoverVinyl = false
+        //let hoverMP3 = false
 
         renderer.domElement.addEventListener('click', () => {
             if(hoverGramophone == true) {
-               //gramophone.audio.play()
+               gramophone.audio.play()
                //gramophoneSound.play()
             }
+            if(hoverJukebox == true) {
+                jukebox.audio.play()
+             }
+            if(hoverRadio == true) {
+                radio.audio.play()
+            }
+            if(hoverVinyl == true) {
+                vinyl.audio.play()
+            }
+            // if(hoverMP3 == true) {
+            //     mp3.audio.play()
+            // }
         })
 
         /**
@@ -335,6 +388,38 @@ export default class MainPart {
             else {
                 hoverGramophone = false
             }
+
+            const intersectsJukebox = raycaster.intersectObject(jukebox.group, true)
+            if(intersectsJukebox.length) {
+                hoverJukebox = true
+            }
+            else {
+                hoverJukebox = false
+            }
+
+            const intersectsRadio = raycaster.intersectObject(radio.group, true)
+            if(intersectsRadio.length) {
+                hoverRadio = true
+            }
+            else {
+                hoverRadio = false
+            }
+
+            const intersectsVinyl = raycaster.intersectObject(vinyl.group, true)
+            if(intersectsVinyl.length) {
+                hoverVinyl = true
+            }
+            else {
+                hoverVinyl = false
+            }
+
+            // const intersectsMP3 = raycaster.intersectObject(mp3.group, true)
+            // if(intersectsMP3.length) {
+            //     hoverMP3 = true
+            // }
+            // else {
+            //     hoverMP3 = false
+            // }
 
             // Render
             renderer.render(scene, camera)

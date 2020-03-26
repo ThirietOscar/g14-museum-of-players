@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
-// import MP3AudioSource from '../sounds/MP3.mp3'
+import vinylAudioSource from '../sounds/platine.mp3'
 
 export default class Vinyl
 {
@@ -10,6 +10,7 @@ export default class Vinyl
         this.group = new THREE.Group()
 
         this.name='Vinyl'
+        this.text='The vinyl phonograph record is the fruit of the work of several scientists such as the French Charles Cros, Emile Berliner and the American Thomas Edison during the 20th century. This disc, generally black in colour, is crossed by a microscopic spiral groove whose beginning is generally on the outside and the end in the centre of the disc. If we could stretch all the data contained on a CD in a straight line, it would arrive at a line about 6.5 kilometres long.'
 
         this.background = 'linear-gradient(180deg, #CCAF95 -37.79%, #FFF3E9 100%)'
         this.textColor = '#BAA593'
@@ -37,7 +38,7 @@ export default class Vinyl
             }
         )
 
-        // this.audio = new Audio(MP3AudioSource)
-        // this.audio.volume = 0.4
+        this.audio = new Audio(vinylAudioSource)
+        this.audio.volume = 0.4
     }
 }
