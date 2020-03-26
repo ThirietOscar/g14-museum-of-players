@@ -4,8 +4,10 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 //Import object models
 import Gramophone from './Gramophone.js'
-import MP3 from './MP3.js'
 import Jukebox from './Jukebox.js'
+import Radio from './Radio.js'
+import Vinyl from './Vinyl.js'
+import MP3 from './MP3.js'
 
 //Import sounds
 import gramophoneAudioSource from '../sounds/gramophone.mp3'
@@ -90,12 +92,24 @@ export default class MainPart {
         // gramophoneSound.add(gramophoneSoundHelper)
 
         /**
-         * Jukeboox
+         * Jukebox
          */
 
-        // // Jukebox
-        // const jukebox = new Jukebox()
-        // scene.add(jukebox.group)
+        // Jukebox
+        const jukebox = new Jukebox()
+        scene.add(jukebox.group)
+
+        /**
+         * Radio
+         */
+        const radio = new Radio()
+        scene.add(radio.group)
+
+        /**
+         * Vinyl
+         */
+        const vinyl = new Vinyl()
+        scene.add(vinyl.group)
 
 
         // var geometry = new THREE.PlaneGeometry( 5, 5, 20 );
@@ -123,6 +137,18 @@ export default class MainPart {
 
                 if(i == 0) {
                     currentObject = gramophone
+
+                } else if(i == 1) {
+
+                    currentObject = jukebox
+
+                } else if(i == 2) {
+
+                    currentObject = radio
+
+                } else if(i == 3) {
+
+                    currentObject = vinyl
 
                 } else if(i == 4) {
 
@@ -230,7 +256,7 @@ export default class MainPart {
         renderer.domElement.addEventListener('click', () => {
             if(hoverGramophone == true) {
                //gramophone.audio.play()
-               gramophoneSound.play()
+               //gramophoneSound.play()
             }
         })
 
