@@ -9,7 +9,10 @@ export default class Vinyl
     {
         this.group = new THREE.Group()
 
+        this.name='Vinyl'
+
         this.background = 'linear-gradient(180deg, #CCAF95 -37.79%, #FFF3E9 100%)'
+        this.textColor = '#BAA593'
 
         this.cameraPosition = new THREE.Vector3(15.521, 0.0329, 0.98)
 

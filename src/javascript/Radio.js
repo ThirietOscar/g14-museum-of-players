@@ -9,7 +9,10 @@ export default class Radio
     {
         this.group = new THREE.Group()
 
+        this.name='Radio'
+
         this.background = 'linear-gradient(180deg, #085254 -102.93%, #E2FEFF 100%)'
+        this.textColor = '#719090'
 
         this.cameraPosition = new THREE.Vector3(10.521, 0.0329, 0.98)
 
@@ -29,7 +32,9 @@ export default class Radio
                 this.radio.scale.set(0.2, 0.2, 0.2)
                 this.radio.position.set(10, - 0.2, 0)
                 this.radio.rotation.y = Math.PI
-                this.radio.material = new THREE.MeshToonMaterial()
+                this.radio.material = new THREE.MeshToonMaterial(
+
+                )
                 this.group.add(this.radio)
             }
         )

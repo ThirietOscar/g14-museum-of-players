@@ -11,6 +11,10 @@ export default class Jukebox
 
         this.background = 'linear-gradient(180deg, #A0CC9F 0%, #F3FFEA 100%)'
 
+        this.name='Jukebox'
+
+        this.textColor = '#719091'
+
         this.cameraPosition = new THREE.Vector3(5.521, 0.0329, 0.98)
 
         this.scenePosition = new THREE.Vector3(5, 0, 0)
