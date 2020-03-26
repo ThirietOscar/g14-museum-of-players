@@ -290,6 +290,15 @@ h2
             &__5
                 left 24px
 
+            
+            &--off
+            
+                .equalizer__bar
+                    animation-name equalizer-stop
+                    animation-iteration-count 1
+                    animation-fill-mode forwards
+
+
             &--on
 
                 .equalizer__bar
@@ -312,14 +321,6 @@ h2
 
                 .equalizer__5
                     animation-duration 0.56s
-
-            &--off 
-            
-                .equalizer__bar
-                    animation-name equalizer-stop
-                    animation-iteration-count 1
-                    animation-fill-mode forwards
-
 
 @keyframes equalizer-play
     0%

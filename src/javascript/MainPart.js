@@ -336,6 +336,35 @@ export default class MainPart {
         let hoverRadio = false
         let hoverVinyl = false
         let hoverMP3 = false
+        
+        /**
+        * SOUND
+        */
+       const $equalizerButton = document.querySelector('.js-equalizer-button')
+       let $equalizer = document.querySelectorAll('.js-equalizer')
+
+       $equalizerButton.addEventListener('click', () =>
+       {
+           $equalizer[0].classList.toggle('equalizer--on')
+       })
+       
+       $equalizerButton.addEventListener('click', () => {
+           if(gramophoneSound.isPlaying === true) {
+              gramophoneSound.pause()
+           }
+           if(jukeboxSound.isPlaying === true) {
+               jukeboxSound.pause()
+            }
+           if(radioSound.isPlaying === true) {
+               radioSound.pause()
+           }
+           if(vinylSound.isPlaying === true) {
+               vinylSound.pause()
+           }
+           if(mp3Sound.isPlaying === true) {
+               mp3Sound.pause()
+           }
+       })
 
         renderer.domElement.addEventListener('click', () => {
             if(hoverGramophone == true) {
