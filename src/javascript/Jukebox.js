@@ -13,7 +13,7 @@ export default class Jukebox
 
         this.name='Jukebox'
 
-        this.textColor = '#719091'
+        this.textColor = '#69965E'
 
         this.cameraPosition = new THREE.Vector3(5.521, 0.0329, 0.98)
 
