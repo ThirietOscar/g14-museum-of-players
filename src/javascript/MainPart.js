@@ -1,4 +1,4 @@
-import { TweenLite } from 'gsap/all'
+import { gsap } from 'gsap'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { PositionalAudioHelper } from 'three/examples/jsm/helpers/PositionalAudioHelper';
@@ -225,14 +225,14 @@ export default class MainPart {
 
                 //const test = Math.atan2(currentObject.scenePosition.z - camera.position.z, currentObject.scenePosition.z - camera.position.x)
 
-                TweenLite.to(camera.position, 2, {
+                gsap.to(camera.position, 2, {
                     x: currentObject.cameraPosition.x,
                     y: currentObject.cameraPosition.y,
                     z: currentObject.cameraPosition.z,
                     ease: 'Power3.easeInOut'
                 })
 
-                // TweenLite.to($mainPartbackground, 1, {
+                // gsap.to($mainPartbackground, 1, {
                 //     background: currentObject.background,
                 //     ease: 'Power3.easeIn'
                 // })

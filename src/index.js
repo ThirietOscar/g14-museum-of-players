@@ -1,6 +1,6 @@
 import './style/main.styl'
 import * as THREE from 'three'
-import { TweenLite } from 'gsap/all'
+import { gsap } from 'gsap'
 
 import StartPart from './javascript/StartPart.js'
 import MainPart from './javascript/MainPart.js'
@@ -17,7 +17,7 @@ import MainPart from './javascript/MainPart.js'
 // })
 
 // window.addEventListener('mousedown', (_event) => {
-//     TweenLite.to($cursor, 0.3, { 
+//     gsap.to($cursor, 0.3, { 
 //         transform: `${ $cursor.style.transform } scale(0.7)`,
 //         ease: 'Power3.easeIn'
 //     })
@@ -44,6 +44,8 @@ infoButton.addEventListener('click', () =>
 {
     infoPop.classList.toggle('main-part__information__hidden')
 })
+
+
 
 const startPart = new StartPart()
 const mainPart = new MainPart()
