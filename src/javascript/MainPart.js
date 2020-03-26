@@ -351,27 +351,27 @@ export default class MainPart {
         */
        const $equalizerButton = document.querySelector('.js-equalizer-button')
        let $equalizer = document.querySelectorAll('.js-equalizer')
-
-       $equalizerButton.addEventListener('click', () =>
-       {
-           $equalizer[0].classList.toggle('equalizer--on')
-       })
        
        $equalizerButton.addEventListener('click', () => {
            if(gramophoneSound.isPlaying === true) {
               gramophoneSound.pause()
+              $equalizer[0].classList.remove('equalizer--on')
            }
            if(jukeboxSound.isPlaying === true) {
                jukeboxSound.pause()
+               $equalizer[0].classList.remove('equalizer--on')
             }
            if(radioSound.isPlaying === true) {
                radioSound.pause()
+               $equalizer[0].classList.remove('equalizer--on')
            }
            if(vinylSound.isPlaying === true) {
                vinylSound.pause()
+               $equalizer[0].classList.remove('equalizer--on')
            }
            if(mp3Sound.isPlaying === true) {
                mp3Sound.pause()
+               $equalizer[0].classList.remove('equalizer--on')
            }
        })
 
