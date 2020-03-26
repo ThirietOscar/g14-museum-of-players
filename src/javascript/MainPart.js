@@ -421,12 +421,12 @@ export default class MainPart {
                 }
             }
             if(hoverMP3 == true) {
-                if(MP3Sound.isPlaying === true){
-                    MP3Sound.pause()
+                if(mp3Sound.isPlaying === true){
+                    mp3Sound.pause()
                     $equalizer[0].classList.remove('equalizer--on')
                 }
                 else{
-                    MP3Sound.play()
+                    mp3Sound.play()
                     $equalizer[0].classList.add('equalizer--on')
 
                 }
