@@ -16,6 +16,7 @@ export default class Jukebox
         this.schema= '/images/schemaJukebox.png'
 
         this.textColor = '#69965E'
+        this.iconFilter = 'invert(57%) sepia(9%) saturate(1767%) hue-rotate(63deg) brightness(93%) contrast(81%)'
 
         this.cameraPosition = new THREE.Vector3(5.521, 0.0329, 0.98)
 

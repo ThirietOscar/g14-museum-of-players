@@ -15,8 +15,8 @@ export default class Gramophone
         this.schema= '/images/schemaGramophone.png'
 
         this.background = 'linear-gradient(180deg, #FFC400 -78.86%, #FFFAE7 100%)'
-
         this.textColor = '#B6AA81'
+        this.iconFilter = 'invert(96%) sepia(8%) saturate(1867%) hue-rotate(338deg) brightness(81%) contrast(70%)'
 
         this.cameraPosition = new THREE.Vector3(0.521, 0.0329, 0.98)
 

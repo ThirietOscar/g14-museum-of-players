@@ -15,6 +15,7 @@ export default class Radio
 
         this.background = 'linear-gradient(180deg, #085254 -102.93%, #E2FEFF 100%)'
         this.textColor = '#719090'
+        this.iconFilter = 'invert(59%) sepia(19%) saturate(347%) hue-rotate(132deg) brightness(87%) contrast(91%)'
 
         this.cameraPosition = new THREE.Vector3(10.521, 0.0329, 0.98)
 

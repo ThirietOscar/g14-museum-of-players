@@ -15,6 +15,7 @@ export default class MP3
 
         this.background = 'linear-gradient(180deg, #9C4A40 -63.62%, #FFECEA 100%)'
         this.textColor = '#AF7D77'
+        this.iconFilter = 'invert(62%) sepia(4%) saturate(2917%) hue-rotate(318deg) brightness(84%) contrast(96%)'
 
         this.cameraPosition = new THREE.Vector3(25.521, 0.0329, 0.98)
 

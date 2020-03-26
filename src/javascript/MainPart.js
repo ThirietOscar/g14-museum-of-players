@@ -184,6 +184,7 @@ export default class MainPart {
         const $informationText = document.querySelector('.main-part__information__text')
         const $objectName = document.querySelector('.main-part__object__name')
         const $schema = document.querySelector('.schema')
+        const $infoIcon = document.querySelector('.main-part__object__info-icon')
         
         for (let i = 0; i < $seekBarPoints.length; i++) {
             const _element = $seekBarPoints[i];
@@ -239,6 +240,16 @@ export default class MainPart {
                 })
                 objectNameAnimation.play()
                 
+                const infoIconAnimation = gsap.to($infoIcon, 0.5, {
+                    opacity: 0,
+                    ease: 'Power3.easeIn',
+                    onComplete: () => {
+                        $infoIcon.style.filter = currentObject.iconFilter
+                        infoIconAnimation.reverse()
+                    }
+                })
+                infoIconAnimation.play()
+
                 $informationText.innerHTML = currentObject.text
                 $schema.src = currentObject.schema
             })

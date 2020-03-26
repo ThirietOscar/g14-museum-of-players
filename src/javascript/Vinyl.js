@@ -15,6 +15,7 @@ export default class Vinyl
 
         this.background = 'linear-gradient(180deg, #CCAF95 -37.79%, #FFF3E9 100%)'
         this.textColor = '#BAA593'
+        this.iconFilter = 'invert(76%) sepia(10%) saturate(601%) hue-rotate(346deg) brightness(88%) contrast(88%)'
 
         this.cameraPosition = new THREE.Vector3(15.521, 0.0329, 0.98)
 
