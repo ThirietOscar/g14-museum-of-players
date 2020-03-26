@@ -27,6 +27,10 @@ export default class MainPart {
         cursor.y = 0
 
         /**
+        * Positions
+        */
+        
+        /**
         * Scene
         */
         const scene = new THREE.Scene()
@@ -42,7 +46,6 @@ export default class MainPart {
 
         camera.position.set(0.521, 0.0329, 0.98)
         scene.add(camera)
-        
 
         // Lights
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
@@ -98,16 +101,12 @@ export default class MainPart {
         // var plane = new THREE.Mesh( geometry, material );
         // plane.rotation.x = Math.PI / 2
         // scene.add( plane );
-       
+
         /**
          * MP3
          */
-
-        // const mp3 = new MP3()
-        // mp3.position.y = 2
-        // mp3.position.x = -2
-        // scene.add(mp3.group)
-
+        const mp3 = new MP3()
+        scene.add(mp3.group)
 
         /**
          * SeekBar 
@@ -251,7 +250,6 @@ export default class MainPart {
             //console.log(camera.position)
             // Camera
             camera.lookAt(scene.position)
-            // camera.lookAt(mp3.group.position)
 
             // Cursor raycasting
             const raycasterCursor = new THREE.Vector2(cursor.x * 2, - cursor.y * 2)
