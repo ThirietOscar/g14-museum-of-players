@@ -367,20 +367,26 @@ export default class MainPart {
         renderer.domElement.addEventListener('click', () => {
             if(hoverGramophone == true) {
                gramophoneSound.play()
+               $equalizer[0].classList.add('equalizer--on')
             }
             if(hoverJukebox == true) {
                 jukeboxSound.play()
+                $equalizer[0].classList.add('equalizer--on')
              }
             if(hoverRadio == true) {
                 radioSound.play()
+                $equalizer[0].classList.add('equalizer--on')
             }
             if(hoverVinyl == true) {
                 vinylSound.play()
+                $equalizer[0].classList.add('equalizer--on')
             }
             if(hoverMP3 == true) {
                 mp3Sound.play()
+                $equalizer[0].classList.add('equalizer--on')
             }
         })
+
 
         /**
          * Camera Controls
