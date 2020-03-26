@@ -78,7 +78,7 @@ export default class MainPart {
         const gramophoneAudioLoader = new THREE.AudioLoader();
         gramophoneAudioLoader.load(gramophoneAudioSource, (buffer) => {
             gramophoneSound.setBuffer(buffer)
-            gramophoneSound.setRefDistance(1)
+            gramophoneSound.setRefDistance(0.5)
             gramophoneSound.setDirectionalCone(180, 230, 0.1)
         })
 
@@ -120,6 +120,7 @@ export default class MainPart {
             const _element = $seekBarPoints[i];
             
             _element.addEventListener('click', () => {
+                //const lastObject = currentObject
 
                 if(i == 0) {
                     currentObject = gramophone
@@ -129,7 +130,7 @@ export default class MainPart {
                     currentObject = mp3
                 }
 
-                console.log(currentObject)
+                //const test = Math.atan2(currentObject.scenePosition.z - camera.position.z, currentObject.scenePosition.z - camera.position.x)
 
                 TweenLite.to(camera.position, 2, {
                     x: currentObject.cameraPosition.x,
@@ -155,13 +156,13 @@ export default class MainPart {
         })
 
         const zoomIn = () => {
-            if(getDistance(camera, scene) > 0.30 )
-            camera.position.sub(scene.position).multiplyScalar(0.95).add(scene.position)
+            if(getDistance(camera, currentObject.group) > 0.30)
+                camera.position.sub(currentObject.scenePosition).multiplyScalar(0.95).add(currentObject.scenePosition)
         }
 
         const zoomOut = () => {
-            if(getDistance(camera, scene) < 0.70 )
-            camera.position.sub(scene.position).multiplyScalar(1.05).add(scene.position)
+            if(getDistance(camera, currentObject.group) < 0.70)
+                camera.position.sub(currentObject.scenePosition).multiplyScalar(1.05).add(currentObject.scenePosition)
         }
 
         //Return distance between two coordinates
@@ -263,6 +264,8 @@ export default class MainPart {
             //console.log(camera.position)
             // Camera
             camera.lookAt(currentObject.scenePosition)
+
+            //console.log(camera.lookAt(currentObject.scenePosition))
 
             // Cursor raycasting
             const raycasterCursor = new THREE.Vector2(cursor.x * 2, - cursor.y * 2)
