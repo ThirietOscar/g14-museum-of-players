@@ -26,7 +26,7 @@ export default class Vinyl
         gltfLoader.setDRACOLoader(dracoLoader)
 
         gltfLoader.load(
-            './models/vinyl/model.gltf',
+            'models/vinyl/model.gltf',
             (_gltf) =>
             {   
                 this.vinyl = _gltf.scene.children[0]

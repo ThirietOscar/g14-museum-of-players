@@ -28,7 +28,7 @@ export default class Gramophone
         gltfLoader.setDRACOLoader(dracoLoader)
 
         gltfLoader.load(
-            './models/gramophone/model.gltf',
+            'models/gramophone/model.gltf',
             (_gltf) =>
             {   
                 this.gramophone = _gltf.scene.children[0]
