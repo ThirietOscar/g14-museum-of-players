@@ -129,12 +129,19 @@ export default class MainPart {
          */
 
         const $seekBarPoints = document.querySelectorAll('.seek_bar_object')
+        const $backgroundobjects = document.querySelectorAll('.background_object')
 
         for (let i = 0; i < $seekBarPoints.length; i++) {
             const _element = $seekBarPoints[i];
             
             _element.addEventListener('click', () => {
                 //const lastObject = currentObject
+
+                $backgroundobjects.forEach(backgroundobject => {
+                    backgroundobject.classList.remove('current_object')
+                })
+
+                $backgroundobjects[i].classList.add('current_object')
 
                 if(i == 0) {
                     currentObject = gramophone

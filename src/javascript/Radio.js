@@ -26,7 +26,7 @@ export default class Radio
                 this.radio = _gltf.scene.children[0]
                 this.radio.scale.set(0.2, 0.2, 0.2)
                 this.radio.position.set(10, - 0.2, 0)
-                this.radio.rotation.y = - Math.PI
+                this.radio.rotation.y = Math.PI
                 this.radio.material = new THREE.MeshToonMaterial()
                 this.group.add(this.radio)
             }
