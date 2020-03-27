@@ -9,6 +9,7 @@ export default class Radio
         this.group = new THREE.Group()
 
         this.name='Radio'
+        this.date='1950'
         this.text='The invention of radio is a collective work that began in the 1840s, starting with the discovery of electromagnetic waves, the invention of the telegraph, and culminating in the first equipment that could be used to communicate wirelessly using radio waves. In 1940, about one on two French households was equipped with a radio. In 1962 the proportion exceeded 85%, whereas today there are on average 6 radios per house. <strong>Song playing: Beatles - Help!</strong>'
         this.schema= 'images/schemaRadio.png'
 
@@ -28,7 +29,7 @@ export default class Radio
 
         gltfLoader.load(
             'models/radio/model.gltf',
-            (_gltf) => {   
+            (_gltf) => {
                 this.radio = _gltf.scene.children[0]
                 this.radio.scale.set(0.2, 0.2, 0.2)
                 this.radio.rotation.y = -12.5

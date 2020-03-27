@@ -15,7 +15,7 @@
     font-family 'Myanmar MN'
     font-weight bold
     src url('../fonts/MyanmarMN/MyanmarMN-Bold.ttf') format('truetype')
-   
+
 *
     margin 0
     padding 0
@@ -29,7 +29,7 @@ body
     width 100%
     height 100%
     overflow hidden
-    
+
 
 h1, h2, h3, h4, a
     font-family Myanmar MN
@@ -87,7 +87,7 @@ h2
     &__button-start
         position absolute
         bottom 95px
-        left 50%  
+        left 50%
         width 150px
         height 50px
         padding 10px 0
@@ -104,16 +104,16 @@ h2
         animation pulse 2.5s infinite
         outline 0
         transition 0.8s
-    
+
     &__button-start:hover
         animation: none;
         transition 0.6s
         color #F8D664
         border 3px solid #F8D664
 
-    & canvas 
+    & canvas
         background linear-gradient(180deg, rgba(180,192,255,1) 0%, rgba(247,247,255,1) 100%)
-    
+
     @keyframes pulse
         0%
             transform(scale(.6))
@@ -153,9 +153,9 @@ h2
         bottom 60px
         left 50%
         display flex
-        justify-content center 
+        justify-content center
         align-items center
-        transform translate(-50%)   
+        transform translate(-50%)
 
         &__name
             color #B6AA81
@@ -163,6 +163,8 @@ h2
         &__date
             color #B6AA81
             font-weight normal
+            position absolute
+            padding-top 70px
 
         &__info-icon
             filter invert(96%) sepia(8%) saturate(1867%) hue-rotate(338deg) brightness(81%) contrast(70%)
@@ -239,27 +241,27 @@ h2
             width 1.9vh
             border-radius 50%
             position relative
-            display flex 
+            display flex
             align-items center
             transition 0.5s
-                    
+
             .seek_bar_object
                 position absolute
                 top 0.2vh
                 left 0.2vh
                 height 1.5vh
                 width 1.5vh
-                display flex 
+                display flex
                 align-items center
                 background white
-                border-radius 50%  
-           
-            &:hover   
+                border-radius 50%
+
+            &:hover
                 transform scale(1.5)
                 animation-name button-transition
                 animation-duration .1s
-                animation-timing-function ease-out 
-                animation-fill-mode back 
+                animation-timing-function ease-out
+                animation-fill-mode back
 
     .equalizer-button
         position absolute
@@ -298,9 +300,9 @@ h2
             &__5
                 left 24px
 
-            
+
             &--off
-            
+
                 .equalizer__bar
                     animation-name equalizer-stop
                     animation-iteration-count 1
@@ -333,10 +335,10 @@ h2
 @keyframes equalizer-play
     0%
     100%
-        height 8px    
+        height 8px
     50%
-       height 20px      
-       
+       height 20px
+
 @keyframes equalizer-stop
     0%
         height 15px

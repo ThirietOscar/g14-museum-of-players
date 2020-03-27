@@ -35,7 +35,7 @@ export default class MainPart {
         /**
         * Positions
         */
-        
+
         /**
         * Scene
         */
@@ -104,7 +104,7 @@ export default class MainPart {
             jukeboxSound.setRefDistance(0.5)
             jukeboxSound.setDirectionalCone(180, 230, 0.1)
         })
-        
+
         jukebox.group.add(jukeboxSound)
 
         /**
@@ -157,7 +157,7 @@ export default class MainPart {
 
         mp3.group.add(mp3Sound)
         /**
-         * SeekBar 
+         * SeekBar
          */
 
         const $seekBarPoints = document.querySelectorAll('.seek_bar_object')
@@ -165,13 +165,14 @@ export default class MainPart {
         const $mainPartbackground = document.querySelector('.js-main-background')
         const $informationText = document.querySelector('.main-part__information__text')
         const $objectName = document.querySelector('.main-part__object__name')
+        const $objectDate = document.querySelector('.main-part__object__date')
         const $schema = document.querySelector('.schema')
         const $infoIcon = document.querySelector('.main-part__object__info-icon')
-        
+
         //Add an event on all seekbar points
         for (let i = 0; i < $seekBarPoints.length; i++) {
             const _element = $seekBarPoints[i];
-            
+
             _element.addEventListener('click', () => {
 
                 $backgroundObjects.forEach(backgroundobject => {
@@ -190,7 +191,7 @@ export default class MainPart {
                 } else if(i == 2) {
 
                     currentObject = radio
-                    
+
                 } else if(i == 3) {
 
                     currentObject = vinyl
@@ -211,7 +212,7 @@ export default class MainPart {
 
                 $mainPartbackground.style.background = currentObject.background
 
-                
+
 
 
                 //Change the player name and animate it
@@ -220,12 +221,14 @@ export default class MainPart {
                     ease: 'Power3.easeIn',
                     onComplete: () => {
                         $objectName.innerText = currentObject.name
+                        $objectDate.innerText = currentObject.date
                         $objectName.style.color = currentObject.textColor
+                        $objectDate.style.color = currentObject.textColor
                         objectNameAnimation.reverse()
                     }
                 })
                 objectNameAnimation.play()
-                
+
                 //Change the player info button and animate it
                 const infoIconAnimation = gsap.to($infoIcon, 0.5, {
                     opacity: 0,
@@ -333,13 +336,13 @@ export default class MainPart {
         let hoverRadio = false
         let hoverVinyl = false
         let hoverMP3 = false
-        
+
         /**
         * SOUND
         */
        const $equalizerButton = document.querySelector('.js-equalizer-button')
        let $equalizer = document.querySelectorAll('.js-equalizer')
-       
+
        $equalizerButton.addEventListener('click', () => {
            if(gramophoneSound.isPlaying === true) {
               gramophoneSound.pause()
@@ -500,6 +503,6 @@ export default class MainPart {
             renderer.render(scene, camera)
         }
 
-        loop() 
+        loop()
     }
 }

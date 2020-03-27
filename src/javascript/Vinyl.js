@@ -9,6 +9,7 @@ export default class Vinyl
         this.group = new THREE.Group()
 
         this.name='Vinyl'
+        this.date='1960'
         this.text='The vinyl phonograph record is the fruit of the work of several scientists such as the French Charles Cros, Emile Berliner and the American Thomas Edison during the 20th century. This disc, generally black in colour, is crossed by a microscopic spiral groove whose beginning is generally on the outside and the end in the centre of the disc. If we could stretch all the data contained on a CD in a straight line, it would arrive at a line about 6.5 kilometres long. <strong>Song playing: Pink Floyd - Another Brick In The Wall</strong>'
         this.schema= 'images/schemaPlatine.png'
 
@@ -28,7 +29,7 @@ export default class Vinyl
 
         gltfLoader.load(
             'models/vinyl/model.gltf',
-            (_gltf) => {   
+            (_gltf) => {
                 this.vinyl = _gltf.scene.children[0]
                 this.vinyl.scale.set(0.01, 0.01, 0.01)
                 //this.vinyl.rotation.y = - (Math.PI / 2)
