@@ -9,6 +9,7 @@ export default class Gramophone
         this.group = new THREE.Group()
 
         this.name='Gramophone'
+        this.date='1880'
         this.text=`The gramophone was invented by Emile Berliner in the 1880s. It makes it possible to play extraordinary music pre-recorded on a phonographic disc. A real piece of history, whose record player melodies can be appreciated from the back of a comfortable club armchair.
         The first sound recording was “Au clair de la lune”. <strong>Song playing: Fernandel - Félicie Aussi </strong>`
         this.schema= 'images/schemaGramophone.png'
@@ -29,7 +30,7 @@ export default class Gramophone
 
         gltfLoader.load(
             'models/gramophone/model.gltf',
-            (_gltf) => {   
+            (_gltf) => {
                 this.gramophone = _gltf.scene.children[0]
                 this.gramophone.rotation.y = - (Math.PI / 2)
                 this.gramophone.material = new THREE.MeshToonMaterial()
