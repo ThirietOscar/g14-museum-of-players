@@ -28,10 +28,16 @@ window.addEventListener('mousemove', (_event) => {
  */
 const infoButton = document.querySelector('.js-main-part__object__info-icon')
 const infoPop = document.querySelector('.js-information')
+const closeInfo = document.querySelector('.js-close-info')
 
 infoButton.addEventListener('click', () =>
 {
     infoPop.classList.toggle('main-part__information__hidden')
+})
+
+closeInfo.addEventListener('click', () =>
+{
+    infoPop.classList.add('main-part__information__hidden')
 })
 
 
