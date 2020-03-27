@@ -10,7 +10,7 @@ export default class Vinyl
 
         this.name='Vinyl'
         this.text='The vinyl phonograph record is the fruit of the work of several scientists such as the French Charles Cros, Emile Berliner and the American Thomas Edison during the 20th century. This disc, generally black in colour, is crossed by a microscopic spiral groove whose beginning is generally on the outside and the end in the centre of the disc. If we could stretch all the data contained on a CD in a straight line, it would arrive at a line about 6.5 kilometres long. <strong>Song playing: Pink Floyd - Another Brick In The Wall</strong>'
-        this.schema= '/images/schemaPlatine.png'
+        this.schema= './images/schemaPlatine.png'
 
         this.background = 'linear-gradient(180deg, #CCAF95 -37.79%, #FFF3E9 100%)'
         this.textColor = '#BAA593'
