@@ -1,7 +1,6 @@
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
-import MP3AudioSource from '../sounds/baladeur.mp3'
 
 export default class MP3
 {
@@ -29,8 +28,7 @@ export default class MP3
 
         gltfLoader.load(
             'models/MP3/model.gltf',
-            (_gltf) =>
-            {   
+            (_gltf) => {   
                 this.MP3 = _gltf.scene.children[0]
                 this.MP3.scale.set(0.015, 0.015, 0.015)
                 this.MP3.rotation.x = (Math.PI / 2)
@@ -38,8 +36,5 @@ export default class MP3
                 this.group.add(this.MP3)
             }
         )
-
-        // this.audio = new Audio(MP3AudioSource)
-        // this.audio.volume = 0.4
     }
 }

@@ -1,7 +1,6 @@
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
-import jukeboxAudioSource from '../sounds/jukebox.mp3'
 
 export default class Jukebox
 {
@@ -30,8 +29,7 @@ export default class Jukebox
 
         gltfLoader.load(
             'models/jukebox/model.gltf',
-            (_gltf) =>
-            {   
+            (_gltf) => {   
                 this.jukebox = _gltf.scene.children[0]
                 this.jukebox.scale.set(2.4, 2.4, 2.4)
                 this.jukebox.material = new THREE.MeshToonMaterial()
@@ -39,8 +37,5 @@ export default class Jukebox
 
             }
         )
-
-        // this.audio = new Audio(jukeboxAudioSource)
-        // this.audio.volume = 0.4
     }
 }

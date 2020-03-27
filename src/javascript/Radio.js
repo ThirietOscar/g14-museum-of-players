@@ -1,7 +1,6 @@
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
-import radioAudioSource from '../sounds/radio.mp3'
 
 export default class Radio
 {
@@ -29,8 +28,7 @@ export default class Radio
 
         gltfLoader.load(
             'models/radio/model.gltf',
-            (_gltf) =>
-            {   
+            (_gltf) => {   
                 this.radio = _gltf.scene.children[0]
                 this.radio.scale.set(0.2, 0.2, 0.2)
                 this.radio.rotation.y = -12.5

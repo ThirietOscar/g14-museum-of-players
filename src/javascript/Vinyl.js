@@ -1,7 +1,6 @@
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
-import vinylAudioSource from '../sounds/platine.mp3'
 
 export default class Vinyl
 {
@@ -29,8 +28,7 @@ export default class Vinyl
 
         gltfLoader.load(
             'models/vinyl/model.gltf',
-            (_gltf) =>
-            {   
+            (_gltf) => {   
                 this.vinyl = _gltf.scene.children[0]
                 this.vinyl.scale.set(0.01, 0.01, 0.01)
                 //this.vinyl.rotation.y = - (Math.PI / 2)
@@ -38,8 +36,5 @@ export default class Vinyl
                 this.group.add(this.vinyl)
             }
         )
-
-        // this.audio = new Audio(vinylAudioSource)
-        // this.audio.volume = 0.4
     }
 }

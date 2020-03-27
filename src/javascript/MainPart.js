@@ -2,8 +2,6 @@ import { gsap } from 'gsap'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
-//./jsm/helpers/PositionalAudioHelper.js';
-
 //Import object models
 import Gramophone from './Gramophone.js'
 import Jukebox from './Jukebox.js'
@@ -67,12 +65,6 @@ export default class MainPart {
         spotLight.target.position.z = - 2
         scene.add(spotLight.target)
 
-        // const cube = new THREE.Mesh(
-        //     new THREE.BoxBufferGeometry(1, 1, 1),
-        //     new THREE.MeshBasicMaterial( { color: 0xaaffaa, opacity: 0.5 } )
-        // )
-        // scene.add(cube)
-
         /**
          * GRAMOPHONE
          */
@@ -95,9 +87,6 @@ export default class MainPart {
         gramophone.group.add(gramophoneSound)
 
         let currentObject = gramophone
-
-        // const gramophoneSoundHelper = new THREE.PositionalAudioHelper(gramophoneSound)
-        // gramophoneSound.add(gramophoneSoundHelper)
 
         /**
          * JUKEBOX
@@ -152,13 +141,6 @@ export default class MainPart {
 
         vinyl.group.add(vinylSound)
 
-
-        // var geometry = new THREE.PlaneGeometry( 5, 5, 20 );
-        // var material = new THREE.MeshBasicMaterial( {color: 0xffff00, side: THREE.DoubleSide} );
-        // var plane = new THREE.Mesh( geometry, material );
-        // plane.rotation.x = Math.PI / 2
-        // scene.add( plane );
-
         /**
          * MP3
          */
@@ -179,23 +161,24 @@ export default class MainPart {
          */
 
         const $seekBarPoints = document.querySelectorAll('.seek_bar_object')
-        const $backgroundobjects = document.querySelectorAll('.background_object')
+        const $backgroundObjects = document.querySelectorAll('.background_object')
         const $mainPartbackground = document.querySelector('.js-main-background')
         const $informationText = document.querySelector('.main-part__information__text')
         const $objectName = document.querySelector('.main-part__object__name')
         const $schema = document.querySelector('.schema')
         const $infoIcon = document.querySelector('.main-part__object__info-icon')
         
+        //Add an event on all seekbar points
         for (let i = 0; i < $seekBarPoints.length; i++) {
             const _element = $seekBarPoints[i];
             
             _element.addEventListener('click', () => {
 
-                $backgroundobjects.forEach(backgroundobject => {
+                $backgroundObjects.forEach(backgroundobject => {
                     backgroundobject.classList.remove('current_object')
                 })
 
-                $backgroundobjects[i].classList.add('current_object')
+                $backgroundObjects[i].classList.add('current_object')
 
                 if(i == 0) {
                     currentObject = gramophone
@@ -229,7 +212,10 @@ export default class MainPart {
                 $mainPartbackground.style.background = currentObject.background
 
                 
-               const objectNameAnimation = gsap.to($objectName, 0.5, {
+
+
+                //Change the player name and animate it
+                const objectNameAnimation = gsap.to($objectName, 0.5, {
                     opacity: 0,
                     ease: 'Power3.easeIn',
                     onComplete: () => {
@@ -240,6 +226,7 @@ export default class MainPart {
                 })
                 objectNameAnimation.play()
                 
+                //Change the player info button and animate it
                 const infoIconAnimation = gsap.to($infoIcon, 0.5, {
                     opacity: 0,
                     ease: 'Power3.easeIn',
@@ -300,6 +287,7 @@ export default class MainPart {
         renderer.gammaFactor = 2.2
         $mainBackground.appendChild(renderer.domElement)
 
+        //Check if mouse if down or up part
         let mouseDown = false
 
         renderer.domElement.addEventListener('mousedown', (_event) => {
